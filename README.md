@@ -6,7 +6,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of the DS401 R package is to …
+The goal of the DS401 R package is to assess quality of 3d topographics
+scans in form of x3p images.
 
 ## Installation
 
@@ -25,6 +26,29 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 library(DS401)
 ## basic example code
+library(x3ptools)
+```
+
+### This scan has a lot of problems
+
+``` r
+x3p_image(fau277_bb_l2, file = "man/figures/fau277_bb_l2.png")
+```
+
+<img src="man/figures/fau277_bb_l2.png" width="100%" />
+
+The `DS401` package combines a set of functions assessing the quality of
+scans.
+
+### Feature extracted
+
+`extract_na` calculates the percentage of values that are missing in the
+surface matrix of the scan. For the scan shown above, this percentage is
+quite high:
+
+``` r
+extract_na(fau277_bb_l2)
+#> [1] 38.26887
 ```
 
 What is special about using `README.Rmd` instead of just `README.md`?
