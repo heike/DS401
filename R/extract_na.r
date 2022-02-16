@@ -6,10 +6,10 @@
 #' a higher percentage of missing values is associated with a lower scan quality.
 #' @param x3p scan in x3p format
 #' @return percentage of missing values in the surface matrix of the scan
-#' @importFrom x3ptools x3p_read
+#' @export
 #' @examples
-#' x3p <- x3p_read("data-raw/fau277-bb-l2.x3p")
-#' extract_na(x3p) # this scan has a particularly high percentage of missing values
+#' data(fau277_bb_l2)
+#' extract_na(fau277_bb_l2) # this scan has a particularly high percentage of missing values
 extract_na <- function(x3p) {
   stopifnot(class(x3p) == "x3p")
 
