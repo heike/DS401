@@ -4,6 +4,8 @@
 # DS401
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/heike/DS401/workflows/R-CMD-check/badge.svg)](https://github.com/heike/DS401/actions)
 <!-- badges: end -->
 
 The goal of the DS401 R package is to assess quality of 3d topographics
