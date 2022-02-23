@@ -8,7 +8,8 @@
 #' of those rows, which will give us
 #' a good measure to quantify the amount of feathering in a 3d scan.
 #' @param x3p scan in x3p format
-#' @return median percentage of missing values
+#' @return median percentage of missing values # HH: percentage or proportion?
+#' HH: I believe, that what you are calculating is actually a lot more complicated than an overall median of missing values.
 #' @importFrom stats median
 #' @export
 #' @examples
@@ -16,42 +17,41 @@
 #' extract_median_na_proportion(fau277_bb_l2)
 extract_median_na_proportion <- function(x3p) {
 
-SurfaceMatrix <- x3p$surface.matrix
+  SurfaceMatrix <- x3p$surface.matrix
 
-NumberOfLines <- 18
+  NumberOfLines <- 18 # HH: where does the 18 come from?
 
-NumberofYIncrements <- x3p$header.info$sizeY
+  NumberofYIncrements <- x3p$header.info$sizeY
 
-NumberOfIncrementsBetweenLines <- floor(NumberofYIncrements/NumberOfLines)
+  NumberOfIncrementsBetweenLines <- floor(NumberofYIncrements/NumberOfLines)
 
-MaximumX <- x3p$header.info$sizeX*x3p$header.info$incrementX
+  MaximumX <- x3p$header.info$sizeX*x3p$header.info$incrementX
 
-LowerXBound <- MaximumX/6
+  LowerXBound <- MaximumX/6 # HH: why the 6?
 
-UpperXBound <- MaximumX - (MaximumX/6)
+  UpperXBound <- MaximumX - (MaximumX/6)
 
-LowerYBound <- 0
+  LowerYBound <- 0
 
-UpperYBound <- x3p$header.info$sizeY*x3p$header.info$incrementY
+  UpperYBound <- x3p$header.info$sizeY*x3p$header.info$incrementY
 
-IndexLowerXBound <- floor(LowerXBound/x3p$header.info$incrementX)
+  IndexLowerXBound <- floor(LowerXBound/x3p$header.info$incrementX)
 
-IndexUpperXBound <- ceiling(UpperXBound/x3p$header.info$incrementX)
+  IndexUpperXBound <- ceiling(UpperXBound/x3p$header.info$incrementX)
 
-SurfaceMatrix <- SurfaceMatrix[IndexLowerXBound:IndexUpperXBound,]
+  SurfaceMatrix <- SurfaceMatrix[IndexLowerXBound:IndexUpperXBound,]
 
-ProportionNA <- vector(mode = "numeric",length = NumberOfLines+1)
+  ProportionNA <- vector(mode = "numeric",length = NumberOfLines+1)
 
-ProportionNA[1] <- mean(is.na(SurfaceMatrix[,1]))
+  ProportionNA[1] <- mean(is.na(SurfaceMatrix[,1]))
 
-for(i in 1:(NumberOfLines-1)){
-  ProportionNA[i+1] <- mean(is.na(SurfaceMatrix[,i*NumberOfIncrementsBetweenLines]))
-}
+  for(i in 1:(NumberOfLines-1)){
+    ProportionNA[i+1] <- mean(is.na(SurfaceMatrix[,i*NumberOfIncrementsBetweenLines]))
+  }
 
-ProportionNA[NumberOfLines + 1] <- mean(is.na(SurfaceMatrix[,x3p$header.info$sizeY]))
+  ProportionNA[NumberOfLines + 1] <- mean(is.na(SurfaceMatrix[,x3p$header.info$sizeY]))
 
-Median <- median(ProportionNA)
-
-return(Median)
+  Median <- median(ProportionNA)
+  return(Median)
 
 }
