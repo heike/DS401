@@ -11,7 +11,8 @@ extract_median_na_proportion(x3p)
 \item{x3p}{scan in x3p format}
 }
 \value{
-median percentage of missing values
+median percentage of missing values # HH: percentage or proportion?
+HH: I believe, that what you are calculating is actually a lot more complicated than an overall median of missing values.
 }
 \description{
 One of the main problems with 3d scans are the feathering that occurs within the middle of the scan.

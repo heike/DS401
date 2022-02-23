@@ -33,8 +33,11 @@ extract_na_column <- function(x3p) {
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
-#' nas <- extract_na_row(fau277_bb_l2) # this scan has a particularly high percentage of missing values
-#' plot(nas) # interesting pattern: we would expect a similar pattern for all scans (going from very low percentage of missing values at the top of a scan to a fairly high percentage along the bottom)
+#' nas_bad <- extract_na_row(fau277_bb_l2) # this scan has a particularly high percentage of missing values
+#' plot(nas_bad) # interesting pattern: we would expect a similar pattern for all scans (going from very low percentage of missing values at the top of a scan to a fairly high percentage along the bottom)
+#'
+#' nas_good <- extract_na_row(fau001_ba_l1) # this scan is excellent, but sampled at a different rate
+#' plot(nas_good) # similar pattern to above, but low values for most of the scan
 extract_na_row <- function(x3p) {
   stopifnot(class(x3p) == "x3p")
 

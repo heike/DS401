@@ -13,4 +13,8 @@ fau277_bb_l2
 \description{
 This is an x3p file containing an example of a very bad scan
 }
+\examples{
+data(fau277_bb_l2)
+x3p_image(fau277_bb_l2)
+}
 \keyword{datasets}

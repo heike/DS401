@@ -2,4 +2,6 @@
 
 export(extract_median_na_proportion)
 export(extract_na)
+export(extract_na_column)
+export(extract_na_row)
 importFrom(stats,median)
