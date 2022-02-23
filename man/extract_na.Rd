@@ -21,4 +21,5 @@ a higher percentage of missing values is associated with a lower scan quality.
 \examples{
 data(fau277_bb_l2)
 extract_na(fau277_bb_l2) # this scan has a particularly high percentage of missing values
+extract_na(fau001_ba_l1) # good scan
 }

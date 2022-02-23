@@ -14,6 +14,7 @@ fau001_ba_l1
 This is an x3p file containing an example of an excellent scan (sub-sampled)
 }
 \examples{
+library(x3ptools)
 data(fau001_ba_l1)
 x3p_image(fau001_ba_l1)
 }

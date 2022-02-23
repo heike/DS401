@@ -14,6 +14,7 @@ fau277_bb_l2
 This is an x3p file containing an example of a very bad scan
 }
 \examples{
+library(x3ptools)
 data(fau277_bb_l2)
 x3p_image(fau277_bb_l2)
 }

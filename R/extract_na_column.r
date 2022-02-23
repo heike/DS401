@@ -9,8 +9,12 @@
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
-#' nas <- extract_na_column(fau277_bb_l2) # this scan has a particularly high percentage of missing values
-#' plot(nas) # the 'feathering' becomes obvious in the spikes of the missing values
+#' nas_bad <- extract_na_column(fau277_bb_l2) # this scan has a particularly high percentage of missing values
+#' plot(nas_bad) # the 'feathering' becomes obvious in the spikes of the missing values
+#'
+#' nas_good <- extract_na_column(fau001_ba_l1) # good scan
+#' plot(nas_good) # similar pattern to above, but low values for most of the scan
+
 extract_na_column <- function(x3p) {
   stopifnot(class(x3p) == "x3p")
 
@@ -22,7 +26,7 @@ extract_na_column <- function(x3p) {
 }
 
 
-#' Feature extraction: percentage of missing values by column
+#' Feature extraction: percentage of missing values by row
 #'
 #' A good quality of 3d scans is crucial for an assessment of similarity of
 #' striation marks between different bullets.

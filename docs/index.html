@@ -59,7 +59,7 @@
 <div class="page-header"><h1 id="ds401">DS401<a class="anchor" aria-label="anchor" href="#ds401"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p>The goal of the DS401 R package is to assess quality of 3d topographics scans in form of x3p images.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -72,7 +72,6 @@
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">DS401</span><span class="op">)</span>
 <span class="co">## basic example code</span>
@@ -83,29 +82,30 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, file <span class="op">=</span> <span class="st">"man/figures/fau277_bb_l2.png"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/fau277_bb_l2.png" width="100%"></p>
+</div>
+<div class="section level3">
+<h3 id="this-scan-is-about-as-good-as-we-can-hope-for">This scan is about as good as we can hope for<a class="anchor" aria-label="anchor" href="#this-scan-is-about-as-good-as-we-can-hope-for"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span>, file <span class="op">=</span> <span class="st">"man/figures/fau001_ba_l1.png"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/fau001_ba_l1.png" width="100%"></p>
 <p>The <code>DS401</code> package combines a set of functions assessing the quality of scans.</p>
 </div>
 <div class="section level3">
 <h3 id="feature-extracted">Feature extracted<a class="anchor" aria-label="anchor" href="#feature-extracted"></a>
 </h3>
-<p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scan shown above, this percentage is quite high:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 38.26887</span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
+<p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scan showns above, the percentages are quite high for the bad scan and low for the good scan:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span>
-<span class="co">#&gt;      speed           dist       </span>
-<span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span>
-<span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span>
-<span class="co">#&gt;  Median :15.0   Median : 36.00  </span>
-<span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span>
-<span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span>
-<span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 38.26887</span>
+<span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 13.83538</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="row-and-column-wise-missing-values">Row and column-wise missing values<a class="anchor" aria-label="anchor" href="#row-and-column-wise-missing-values"></a>
+</h3>
+<p>Document use of functions <code>extract_na_column</code> and <code>extract_na_row</code> for both a good and a bad plot.</p>
 <p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code><a href="https://devtools.r-lib.org/reference/build_rmd.html" class="external-link">devtools::build_readme()</a></code> is handy for this.</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
 </div>
 </div>
 </div>
@@ -135,7 +135,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/heike/DS401/actions" class="external-link"><img src="https://github.com/heike/DS401/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </div>
 </div>
