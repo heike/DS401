@@ -12,7 +12,7 @@
 #` @export
 #` @examples
 #` data(fau277_bb_12)
-#` extract_median_na_row(fau277_bb_12) 
+#` extract_median_na_proportion(fau277_bb_12) 
 extract_median_na_proportion <- function(x3p) {
 
 SurfaceMatrix <- x3p$surface.matrix
