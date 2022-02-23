@@ -10,8 +10,8 @@
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
-#' extract_na(fau277_bb_l2) # this scan has a particularly high percentage of missing values, and particularly in the bottom.
-
+#' bottomempty(fau277_bb_l2) # this scan has a particularly high percentage of missing values, and particularly in the bottom.
+#' bottomempty(fau001_ba_l1)
 library(x3ptools)
 library(DS401)
 library(dplyr)
