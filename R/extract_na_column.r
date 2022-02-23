@@ -13,8 +13,8 @@
 #' plot(nas_bad) # the 'feathering' becomes obvious in the spikes of the missing values
 #'
 #' nas_good <- extract_na_column(fau001_ba_l1) # good scan
-#' plot(nas_good) # similar pattern to above, but low values for most of the scan
-
+#' plot((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
+#' points(nas_bad, col=4)
 extract_na_column <- function(x3p) {
   stopifnot(class(x3p) == "x3p")
 

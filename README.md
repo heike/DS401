@@ -66,5 +66,24 @@ extract_na(fau001_ba_l1)
 Document use of functions `extract_na_column` and `extract_na_row` for
 both a good and a bad plot.
 
+``` r
+nas_bad <- extract_na_column(fau277_bb_l2) # this scan has a particularly high percentage of missing values
+nas_good <- extract_na_column(fau001_ba_l1) # good scan
+plot((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
+points(nas_bad, col=4)
+```
+
+<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
+
+``` r
+nas_bad <- extract_na_row(fau277_bb_l2) # this scan has a particularly high percentage of missing values
+nas_good <- extract_na_row(fau001_ba_l1) # good scan
+
+plot(nas_bad, col=4)
+points((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
+```
+
+<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
+
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`
 up-to-date. `devtools::build_readme()` is handy for this.
