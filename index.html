@@ -82,15 +82,29 @@
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, file <span class="op">=</span> <span class="st">"man/figures/fau277_bb_l2.png"</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/fau277_bb_l2.png" width="100%"></p>
+</div>
+<div class="section level3">
+<h3 id="this-scan-is-about-as-good-as-we-can-hope-for">This scan is about as good as we can hope for<a class="anchor" aria-label="anchor" href="#this-scan-is-about-as-good-as-we-can-hope-for"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span>, file <span class="op">=</span> <span class="st">"man/figures/fau001_ba_l1.png"</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/fau001_ba_l1.png" width="100%"></p>
 <p>The <code>DS401</code> package combines a set of functions assessing the quality of scans.</p>
 </div>
 <div class="section level3">
 <h3 id="feature-extracted">Feature extracted<a class="anchor" aria-label="anchor" href="#feature-extracted"></a>
 </h3>
-<p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scan shown above, this percentage is quite high:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scan showns above, the percentages are quite high for the bad scan and low for the good scan:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 38.26887</span></code></pre></div>
+<span class="co">#&gt; [1] 38.26887</span>
+<span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 13.83538</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="row-and-column-wise-missing-values">Row and column-wise missing values<a class="anchor" aria-label="anchor" href="#row-and-column-wise-missing-values"></a>
+</h3>
+<p>Document use of functions <code>extract_na_column</code> and <code>extract_na_row</code> for both a good and a bad plot.</p>
 <p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
 </div>
 </div>

@@ -67,9 +67,8 @@ a higher percentage of missing values is associated with a lower scan quality.</
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">nas</span> <span class="op">&lt;-</span> <span class="fu">extract_na_row</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in extract_na_row(fau277_bb_l2):</span> could not find function "extract_na_row"</span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">nas</span><span class="op">)</span> <span class="co"># interesting pattern: we would expect a similar pattern for all scans (going from very low percentage of missing values at the top of a scan to a fairly high percentage along the bottom)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in plot(nas):</span> object 'nas' not found</span>
+<span class="r-plt img"><img src="extract_na_row-1.png" alt="" width="700" height="433"></span>
 </code></pre></div>
     </div>
   </div>
