@@ -52,7 +52,7 @@ extract_na_column <- function(x3p) {
 
 
   #.png  - missing value in the the 20%
-  right <- file %>% mutate(place= (y < round(.2*(max(file$x)))))
+  right <- file %>% mutate(place= (file[is.na(file$x), ]  )
 
   #sum of the missing data 
   missing <- sum(right)
@@ -67,6 +67,4 @@ extract_na_column <- function(x3p) {
 
 }
 
-x3p_image(fau277_bb_l2, file = "man/figures/fau277_bb_l2.png")
-
-
+#x3p_image(fau277_bb_l2, file = "man/figures/fau277_bb_l2.png")
