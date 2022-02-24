@@ -5,10 +5,12 @@
 \title{Feature Extraction: Median of the proportion of NA values present in the middle of a 3d scan,
 from 20 different y values.}
 \usage{
-extract_median_na_proportion(x3p)
+extract_median_na_proportion(x3p, chopoff = 1/6)
 }
 \arguments{
 \item{x3p}{scan in x3p format}
+
+\item{chopoff}{numeric value between 0 and .5 - how many values do we need to chop off from either side of the scan?}
 }
 \value{
 median percentage of missing values # HH: percentage or proportion?

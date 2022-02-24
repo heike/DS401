@@ -9,11 +9,11 @@
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
-#' nas_bad <- extract_na_column(fau277_bb_l2) # this scan has a particularly high percentage of missing values
+#' nas_bad <- extract_na_column(fau277_bb_l2)
 #' plot(nas_bad) # the 'feathering' becomes obvious in the spikes of the missing values
 #'
 #' nas_good <- extract_na_column(fau001_ba_l1) # good scan
-#' plot((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
+#' plot((1:length(nas_good))*3, nas_good, col =2)
 #' points(nas_bad, col=4)
 extract_na_column <- function(x3p) {
   stopifnot(class(x3p) == "x3p")
@@ -36,11 +36,14 @@ extract_na_column <- function(x3p) {
 #' @return percentage of missing values in each row of the scan's surface matrix
 #' @export
 #' @examples
-#' data(fau277_bb_l2)
-#' nas_bad <- extract_na_row(fau277_bb_l2) # this scan has a particularly high percentage of missing values
-#' plot(nas_bad) # interesting pattern: we would expect a similar pattern for all scans (going from very low percentage of missing values at the top of a scan to a fairly high percentage along the bottom)
+#' data(fau277_bb_l2) # bad scan
+#' nas_bad <- extract_na_row(fau277_bb_l2)
+#' plot(nas_bad)
+#' # interesting pattern: we would expect a similar pattern for all scans
+#' # (going from very low percentage of missing values at the top of a scan to a
+#' # fairly high percentage along the bottom)
 #'
-#' nas_good <- extract_na_row(fau001_ba_l1) # this scan is excellent, but sampled at a different rate
+#' nas_good <- extract_na_row(fau001_ba_l1) # excellent scan
 #' plot(nas_good) # similar pattern to above, but low values for most of the scan
 extract_na_row <- function(x3p) {
   stopifnot(class(x3p) == "x3p")

@@ -20,6 +20,10 @@ a higher percentage of missing values is associated with a lower scan quality.
 }
 \examples{
 data(fau277_bb_l2)
-nas <- extract_na_column(fau277_bb_l2) # this scan has a particularly high percentage of missing values
-plot(nas) # the 'feathering' becomes obvious in the spikes of the missing values
+nas_bad <- extract_na_column(fau277_bb_l2)
+plot(nas_bad) # the 'feathering' becomes obvious in the spikes of the missing values
+
+nas_good <- extract_na_column(fau001_ba_l1) # good scan
+plot((1:length(nas_good))*3, nas_good, col =2)
+points(nas_bad, col=4)
 }
