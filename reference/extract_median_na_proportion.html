@@ -57,13 +57,15 @@ a good measure to quantify the amount of feathering in a 3d scan.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">extract_median_na_proportion</span><span class="op">(</span><span class="va">x3p</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">extract_median_na_proportion</span><span class="op">(</span><span class="va">x3p</span>, chopoff <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">6</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x3p</dt>
 <dd><p>scan in x3p format</p></dd>
+<dt>chopoff</dt>
+<dd><p>numeric value between 0 and .5 - how many values do we need to chop off from either side of the scan?</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>

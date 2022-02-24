@@ -105,6 +105,19 @@
 <h3 id="row-and-column-wise-missing-values">Row and column-wise missing values<a class="anchor" aria-label="anchor" href="#row-and-column-wise-missing-values"></a>
 </h3>
 <p>Document use of functions <code>extract_na_column</code> and <code>extract_na_row</code> for both a good and a bad plot.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">nas_bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_column.html">extract_na_column</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span>
+<span class="va">nas_good</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_column.html">extract_na_column</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">nas_bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_row.html">extract_na_row</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span>
+<span class="va">nas_good</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_row.html">extract_na_row</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="100%"></p>
 <p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
 </div>
 </div>
