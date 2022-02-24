@@ -19,6 +19,8 @@
 #' assess_median_na_proportion(fau277_bb_l2)
 assess_median_na_proportion <- function(x3p, chopoff = 1/6, numlines = 20) {
 
+  stopifnot(class(x3p) == "x3p")
+  
   SurfaceMatrix <- x3p$surface.matrix
 
   NumberOfLines <- numlines - 2 # HH: where does the 18 come from? ## from the bottom up, + 2 lines
@@ -54,6 +56,7 @@ assess_median_na_proportion <- function(x3p, chopoff = 1/6, numlines = 20) {
   ProportionNA[NumberOfLines + 1] <- mean(is.na(SurfaceMatrix[,x3p$header.info$sizeY]))
 
   Median <- median(ProportionNA)
+  
   return(Median)
 
 }
