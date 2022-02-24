@@ -52,7 +52,8 @@ extract_na_column <- function(x3p) {
 
 
   #.png  - missing value in the the 20%
-  right <- file %>% mutate(place= (file[is.na(file$x), ]  )
+  right <- file %>% mutate(place= (file[rowSums(is.na(file)) > 0.2, ])
+                             
 
   #sum of the missing data 
   missing <- sum(right)
