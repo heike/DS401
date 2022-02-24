@@ -9,18 +9,19 @@
 #' a good measure to quantify the amount of feathering in a 3d scan.
 #' @param x3p scan in x3p format
 #' @param chopoff numeric value between 0 and .5 - how many values do we need to chop off from either side of the scan?
+#' @param numlines Number of horizontal lines across the scan to find the median proportion of na values from
 #' @return median percentage of missing values # HH: percentage or proportion?
 #' HH: I believe, that what you are calculating is actually a lot more complicated than an overall median of missing values.
 #' @importFrom stats median
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
-#' extract_median_na_proportion(fau277_bb_l2)
-extract_median_na_proportion <- function(x3p, chopoff = 1/6) {
+#' assess_median_na_proportion(fau277_bb_l2)
+assess_median_na_proportion <- function(x3p, chopoff = 1/6, numlines = 20) {
 
   SurfaceMatrix <- x3p$surface.matrix
 
-  NumberOfLines <- 18 # HH: where does the 18 come from? ## from the bottom up, + 2 lines
+  NumberOfLines <- numlines - 2 # HH: where does the 18 come from? ## from the bottom up, + 2 lines
 
   NumberofYIncrements <- x3p$header.info$sizeY
 
