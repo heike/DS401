@@ -94,16 +94,18 @@ prob <-function(x3p){
   is.na(file)
   apply(is.na(file), 2, which)
   
-  #get the bottom pixel
-  get <- getImagePixels(file, side = 3)
+ #get the bottom pixel
+  get <- getImagePixels(file, side = 0.3)
   str(get)
-  
-  #calculator the max 
+  sum_get<-sum(get)
+
+  #calculator the max
   suggestMaximumBins(file)
-  file.prob = calculateHisto(reference_vector = file$reference_vector, 
-                             neighbour_vector = file$neighbour_vector, 
-    nbins = 6)
-  return(file.prob)
+  file.prob = calculateHisto(reference_vector = file$reference_vector,
+                             neighbour_vector = file$neighbour_vector,
+                             nbins = 0.3)
+  getprob <- (sum_get/file.prob)*100
+  return(getprob)
   }
                            
 
