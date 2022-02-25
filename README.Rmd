@@ -92,5 +92,14 @@ plot(nas_bad, col=4)
 points((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
 ```
 
+
+### Assess Median NA Proportion
+
+'assess_median_na_proportion' calculates the median proportion of NA values present in the middle of a 3d scan from a specific number of different y values. Specifically this variable is calculating the amount of feathering occuring in the 3d scans.  
+```{r}
+assess_median_na_proportion(fau277_bb_l2)# This scan seems to have a problem with feathering
+assess_median_na_proportion(fau001_ba_l1)# good scan
+
+```
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. 
 
