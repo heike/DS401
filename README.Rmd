@@ -103,3 +103,10 @@ assess_median_na_proportion(fau001_ba_l1)# good scan
 ```
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. 
 
+### col_na Function
+
+The col_na function's goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.
+
+``` r
+col_na(fau277_bb_l2)
+```
