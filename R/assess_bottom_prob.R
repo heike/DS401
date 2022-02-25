@@ -1,5 +1,9 @@
 devtools::install_github('heike/x3ptools', build_vignettes = TRUE)
 install_bitbucket("imagemetrics", "persican")
+knitr::include_graphics("man/figures/fau277_bb_l2.png")
+devtools::install_github('heike/x3ptools', build_vignettes = TRUE)
+knitr::include_graphics("man/figures/fau001_ba_l1.png")
+devtools::install_github("heike/DS401")
 
 #library
 library(x3ptools)
@@ -21,10 +25,11 @@ library(imagemetrics)
 
 #try to read
 x3ps <- dir(pattern = "x3p", recursive = TRUE, full.names = TRUE)
-knitr::include_graphics("man/figures/fau277_bb_l2.png")
 x3p_image(fau277_bb_l2, file = "man/figures/fau277_bb_l2.png")
+x3p_image(fau001_ba_l1, file = "man/figures/fau001_ba_l1.png")
 
 extract_na(fau277_bb_l2)
+
 
 #' the missing value in the bottom size
 #' we can be find and calcultor and get the missing value to calcultor
@@ -73,7 +78,7 @@ extract_na(fau277_bb_l2)
 
 #}
 
-prob <-funfction(x3p,numberlines = 20){
+prob <-function(x3p){
     stopifnot(class(x3p) == "x3p")
 
  dims <- dim(x3p$surface.matrix)
