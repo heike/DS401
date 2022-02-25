@@ -1,16 +1,18 @@
+devtools::install_github('heike/x3ptools', build_vignettes = TRUE)
+install_bitbucket("imagemetrics", "persican")
+
 #library
 library(x3ptools)
+
 library(Rcmdr)
 library(imager)
 library(DS401)
 library(ggplot2)
 library(dplyr)
 library(devtools)
-#install_bitbucket("imagemetrics", "persican")
 library(imagemetrics)
 
-#down the data
-#devtools::install_github('heike/x3ptools', build_vignettes = TRUE)
+
 
 #place:
 #setwd("~/Desktop/Learning/isu/spring2022/DS401/DS401/man")
@@ -23,12 +25,11 @@ knitr::include_graphics("man/figures/fau277_bb_l2.png")
 x3p_image(fau277_bb_l2, file = "man/figures/fau277_bb_l2.png")
 
 extract_na(fau277_bb_l2)
-#' Feature extraction: percentage of missing values by column
-#'
-#' A good quality of 3d scans is crucial for an assessment of similarity of
-#' striation marks between different bullets.
-#' Here, we measure the percentage of missing values in the scan. Generally,
-#' a higher percentage of missing values is associated with a lower scan quality.
+
+#' the missing value in the bottom size
+#' we can be find and calcultor and get the missing value to calcultor
+#' then, we can be calcultor the porobability
+
 #' @param x3p scan in x3p format
 #' @return percentage of missing values in each column of the scan's surface matrix
 #' @export
@@ -41,7 +42,7 @@ extract_na(fau277_bb_l2)
 #' plot(nas_good) # similar pattern to above, but low values for most of the scan
 #'
 
-#make a function
+#make a function in the column NA data
 #extract_na_column <- function(x3p) {
  # stopifnot(class(x3p) == "x3p")
 
