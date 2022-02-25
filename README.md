@@ -85,5 +85,13 @@ points((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
+### col_na Function
+
+The col_na function's goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.
+
+``` r
+col_na(fau277_bb_l2)
+```
+
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`
 up-to-date. `devtools::build_readme()` is handy for this.
