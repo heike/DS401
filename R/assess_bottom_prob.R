@@ -5,6 +5,10 @@ library(imager)
 library(DS401)
 library(ggplot2)
 library(dplyr)
+library(devtools)
+#install_bitbucket("imagemetrics", "persican")
+library(imagemetrics)
+
 #down the data
 #devtools::install_github('heike/x3ptools', build_vignettes = TRUE)
 
@@ -38,8 +42,38 @@ extract_na(fau277_bb_l2)
 #'
 
 #make a function
-extract_na_column <- function(x3p) {
-  stopifnot(class(x3p) == "x3p")
+#extract_na_column <- function(x3p) {
+ # stopifnot(class(x3p) == "x3p")
+
+# dims <- dim(x3p$surface.matrix)
+# rows <- extract_na_row(x3p)*dims[1]/100
+
+ # return(nas/prod(dims)*100)
+
+
+  #the file mean the png of .x3p file
+ # file <-  x3p_to_df(x3p)
+
+
+  #.png  - missing value
+#  right <- file %>% mutate(place= (file[rowSums(is.na(file)) > 40, ])
+                             
+
+  #sum of the missing data 
+#  missing <- sum(right)
+  
+  #number of value in the right of the png
+ # value <- length(which(right$place=prod(dims)*.2))
+  
+  #present
+ # present < (missing/value) * 100
+  
+#  return(present)
+
+#}
+
+prob <-funfction(x3p,numberlines = 20){
+    stopifnot(class(x3p) == "x3p")
 
  dims <- dim(x3p$surface.matrix)
  rows <- extract_na_row(x3p)*dims[1]/100
@@ -49,23 +83,22 @@ extract_na_column <- function(x3p) {
 
   #the file mean the png of .x3p file
   file <-  x3p_to_df(x3p)
-
-
-  #.png  - missing value
-  right <- file %>% mutate(place= (file[rowSums(is.na(file)) > 40, ])
-                             
-
-  #sum of the missing data 
-  missing <- sum(right)
   
-  #number of value in the right of the png
-  value <- length(which(right$place=prod(dims)*.2))
+  #In order to get the positions of each column
+  is.na(file)
+  apply(is.na(file), 2, which)
   
-  #present
-  present < (missing/value) * 100
+  #get the bottom pixel
+  get <- getImagePixels(file, side = 3)
+  str(get)
   
-  return(present)
-
-}
+  #calculator the max 
+  suggestMaximumBins(file)
+  file.prob = calculateHisto(reference_vector = file$reference_vector, 
+                             neighbour_vector = file$neighbour_vector, 
+    nbins = 6)
+  return(file.prob)
+  }
+                           
 
 #x3p_image(fau277_bb_l2, file = "man/figures/fau277_bb_l2.png")
