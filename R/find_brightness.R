@@ -8,9 +8,8 @@ find_brightness <- function(x3p)
 {
   string <- x3p$general.info$Comment
   
-  brightness <- case_when(str_detect("20%") ~ 20,
-                          str_detect("10%") ~ 10,
-                          T ~ 0)
+  brightness <- case_when(str_detect(string, "x10") ~ "20% - x10",
+                          T ~ "20%")
   
   return(brightness)
 }
