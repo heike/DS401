@@ -16,7 +16,7 @@
     <loc>/reference/assess_col_na.html</loc>
   </url>
   <url>
-    <loc>/reference/extract_median_na_proportion.html</loc>
+    <loc>/reference/assess_median_na_proportion.html</loc>
   </url>
   <url>
     <loc>/reference/extract_na.html</loc>
@@ -32,6 +32,9 @@
   </url>
   <url>
     <loc>/reference/fau277_bb_l2.html</loc>
+  </url>
+  <url>
+    <loc>/reference/find_brightness.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>

@@ -118,6 +118,13 @@
 <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="100%"></p>
+</div>
+<div class="section level3">
+<h3 id="col_na-function">col_na Function<a class="anchor" aria-label="anchor" href="#col_na-function"></a>
+</h3>
+<p>The col_na function’s goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">col_na</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></code></pre></div>
 <p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
 </div>
 </div>
