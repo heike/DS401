@@ -6,14 +6,14 @@
 #' The cutoff for what is considered "bottom" can be adjusted.
 #'
 #' @param x3p scan in x3p format
-#' @param n_cutoff limit for where the 'bottom' ends. In the form of a decimal such as '.n'
+#' @param n_cutoff limit for where the 'bottom' ends. In the form of a decimal such as '.n', defaults to 0.3.
 #' @return percentage of missing values in the bottom n0%.
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
 #' assess_bottomempty(fau277_bb_l2) # bad scan
 #' assess_bottomempty(fau001_ba_l1) # good scan
-assess_bottomempty <- function(x3p, n_cutoff){
+assess_bottomempty <- function(x3p, n_cutoff = .3){
   stopifnot(class(x3p) == "x3p")
 
 
