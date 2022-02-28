@@ -2,20 +2,22 @@
 % Please edit documentation in R/assess_bottomempty.R
 \name{assess_bottomempty}
 \alias{assess_bottomempty}
-\title{Feature extraction: percentage of missing values in the bottom 30\% of the scan}
+\title{Feature extraction: percentage of missing values in the bottom n0\% of the scan}
 \usage{
-assess_bottomempty(somex3p)
+assess_bottomempty(x3p, n_cutoff = 0.3)
 }
 \arguments{
-\item{somex3p}{scan in x3p format}
+\item{x3p}{scan in x3p format}
+
+\item{n_cutoff}{limit for where the 'bottom' ends. In the form of a decimal such as '.n', defaults to 0.3.}
 }
 \value{
-percentage of missing values in the bottom 30\%.
+percentage of missing values in the bottom n0\%.
 }
 \description{
 Missing values to the bottom right of a scan are expected and may not be that impactful. However,
 if there are missing values consistently along the bottom of a scan, it indicates a bad scan, probably due to poor lighting.
-This function returns the percentage of the bottom 30\% of values that are missing.
+This function returns the percentage of the bottom n0\% of values that are missing.
 The cutoff for what is considered "bottom" can be adjusted.
 }
 \examples{

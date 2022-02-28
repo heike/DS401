@@ -11,7 +11,8 @@ Encoding: UTF-8
 Depends:
     R (>= 4.0.0)
 Imports:
-    x3ptools
+    x3ptools,
+    stringr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 LazyData: true

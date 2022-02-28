@@ -4,3 +4,4 @@
 ^\.github$
 ^.*\.Rproj$
 ^docs$
+^~/\.boxr-oauth$

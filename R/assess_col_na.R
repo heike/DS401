@@ -6,6 +6,7 @@
 #' @return logical value: is percentage of columns with more than XXX percent missing values below XXX?
 #' HH: replace XXX by parameter names
 #' @export
+#' @importFrom x3ptools x3p_to_df
 #' @examples
 #' assess_col_na(fau001_ba_l1)
 #' assess_col_na(fau277_bb_l2)

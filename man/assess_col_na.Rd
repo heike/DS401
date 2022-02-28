@@ -4,10 +4,14 @@
 \alias{assess_col_na}
 \title{Asssess percentage of missing values in columns}
 \usage{
-assess_col_na(x3p)
+assess_col_na(x3p, perc_of_col = 40, threshold_prop = 0.2)
 }
 \arguments{
 \item{x3p}{scan in x3p format}
+
+\item{perc_of_col}{HH: what is the expected range for the parameter? defaults to 40}
+
+\item{threshold_prop}{defaults to 0.2}
 }
 \value{
 logical value: is percentage of columns with more than XXX percent missing values below XXX?
