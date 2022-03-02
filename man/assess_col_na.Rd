@@ -9,16 +9,17 @@ assess_col_na(x3p, perc_of_col = 40, threshold_prop = 0.2)
 \arguments{
 \item{x3p}{scan in x3p format}
 
-\item{perc_of_col}{HH: what is the expected range for the parameter? defaults to 40}
+\item{perc_of_col}{Percentage (0 to 100) used as the acceptable percentage of missing values in a column. Defaults to 40}
 
-\item{threshold_prop}{defaults to 0.2}
+\item{threshold_prop}{Proportion (0 to 1, defaults to 0.2) of columns with more than the acceptable percentage of missing values as defined by \code{perc_of_col}.}
 }
 \value{
 logical value: is percentage of columns with more than XXX percent missing values below XXX?
 HH: replace XXX by parameter names
 }
 \description{
-Asssess percentage of missing values in columns
+The function takes an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column,
+and the proportion that bad columns that is the threshold for a good scan.
 }
 \examples{
 assess_col_na(fau001_ba_l1)

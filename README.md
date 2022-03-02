@@ -85,12 +85,34 @@ points((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but
 
 <img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
 
-### col_na Function
+### col\_na Function
 
-The col_na function's goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.
+The col\_na function’s goal is to distinguish between good and bad scans
+based on the proportion of columns with large proportions of missing
+values. It takes in three parameters, which are an x3p object, a
+percentage to be used as the number acceptable percentage of missing
+values in a column, and the proportion that bad columns that is the
+threshold for a good scan.
 
 ``` r
-col_na(fau277_bb_l2)
+assess_col_na(fau277_bb_l2)
+#> [1] FALSE
+assess_col_na(fau001_ba_l1)
+#> [1] TRUE
+```
+
+### Assess Median NA Proportion
+
+‘assess\_median\_na\_proportion’ calculates the median proportion of NA
+values present in the middle of a 3d scan from a specific number of
+different y values. Specifically this variable is calculating the amount
+of feathering occuring in the 3d scans.
+
+``` r
+assess_median_na_proportion(fau277_bb_l2)# This scan seems to have a problem with feathering
+#> [1] 0.08906883
+assess_median_na_proportion(fau001_ba_l1)# good scan
+#> [1] 0.001310616
 ```
 
 You’ll still need to render `README.Rmd` regularly, to keep `README.md`
