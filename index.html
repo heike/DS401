@@ -124,7 +124,20 @@
 </h3>
 <p>The col_na function’s goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu">col_na</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span>
+<span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="assess-median-na-proportion">Assess Median NA Proportion<a class="anchor" aria-label="anchor" href="#assess-median-na-proportion"></a>
+</h3>
+<p>‘assess_median_na_proportion’ calculates the median proportion of NA values present in the middle of a 3d scan from a specific number of different y values. Specifically this variable is calculating the amount of feathering occuring in the 3d scans.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span><span class="co"># This scan seems to have a problem with feathering</span>
+<span class="co">#&gt; [1] 0.08906883</span>
+<span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span><span class="co"># good scan</span>
+<span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
 <p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
 </div>
 </div>
