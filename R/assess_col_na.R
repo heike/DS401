@@ -27,7 +27,8 @@ assess_col_na <- function(x3p, perc_of_col = 40, threshold_prop = 0.2){
   bad_cols <- sum(col_na_perc > perc_of_col)
   threshold <- dims[1] * threshold_prop
 
-  return(bad_cols < threshold)
+#  return(bad_cols < threshold)
+  return(bad_cols / threshold)
 }
 
 
