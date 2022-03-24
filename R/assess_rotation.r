@@ -16,7 +16,6 @@
 #' assess_rotation(fau001_ba_l1) # good scan
 assess_rotation <- function(x3p, width=0.2) {
   stopifnot(class(x3p) == "x3p")
-  stopifnot(probs >= 0, probs <= 1)
   stopifnot(width > 0, width < 0.5)
 
   dims <- dim(x3p$surface.matrix)
