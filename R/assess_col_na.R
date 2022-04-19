@@ -12,7 +12,7 @@
 #' @examples
 #' assess_col_na(fau001_ba_l1)
 #' assess_col_na(fau277_bb_l2)
-assess_col_na <- function(x3p, perc_of_col = 40, threshold_prop = 0.2){
+assess_col_na <- function(x3p, perc_of_col = 20, threshold_prop = 0.2){
   stopifnot(class(x3p) == 'x3p')
   dims <- dim(x3p$surface.matrix)
   # df <- x3p_to_df(x3p)
