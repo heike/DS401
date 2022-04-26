@@ -4,7 +4,7 @@
 \alias{assess_col_na}
 \title{Asssess percentage of missing values in columns}
 \usage{
-assess_col_na(x3p, perc_of_col = 40, threshold_prop = 0.2)
+assess_col_na(x3p, perc_of_col = 20, threshold_prop = 0.2)
 }
 \arguments{
 \item{x3p}{scan in x3p format}

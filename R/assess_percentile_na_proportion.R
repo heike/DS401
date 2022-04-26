@@ -11,8 +11,8 @@
 #' @param numlines Number of horizontal lines across the scan to find the median proportion of na values from
 #' @param percentile Specific percentile to choose from the number of horizontal lines
 #' @return median proportion of missing values
-#' @import
 #' @export
+#' @importFrom stats predict quantile
 #' @examples
 #' data(fau277_bb_l2)
 #' assess_percentile_na_proportion(fau277_bb_l2)

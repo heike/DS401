@@ -7,9 +7,9 @@ from a specific number of different y values.}
 \usage{
 assess_percentile_na_proportion(
   x3p,
-  chopoff = 1/6,
+  chopoff = 1/7,
   numlines = 200,
-  percentile = 0.5
+  percentile = 0.8
 )
 }
 \arguments{

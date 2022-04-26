@@ -4,7 +4,7 @@
 \alias{assess_middle_na_proportion}
 \title{Feature Extraction: Proportion of NA values in the middle of the scan.}
 \usage{
-assess_middle_na_proportion(x3p, chopoff = 1/6)
+assess_middle_na_proportion(x3p, chopoff = 1/8)
 }
 \arguments{
 \item{x3p}{scan in x3p format}

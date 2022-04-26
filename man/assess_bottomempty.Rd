@@ -4,7 +4,7 @@
 \alias{assess_bottomempty}
 \title{Feature extraction: percentage of missing values in the bottom n0\% of the scan}
 \usage{
-assess_bottomempty(x3p, n_cutoff = 0.3)
+assess_bottomempty(x3p, n_cutoff = 0.2)
 }
 \arguments{
 \item{x3p}{scan in x3p format}

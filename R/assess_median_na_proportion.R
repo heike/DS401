@@ -16,45 +16,46 @@
 #' data(fau277_bb_l2)
 #' assess_median_na_proportion(fau277_bb_l2)
 assess_median_na_proportion <- function(x3p, chopoff = 1/6, numlines = 20) {
+  # median is 50th percentile :) wrapper will give the same results
+  assess_percentile_na_proportion(x3p = x3p, chopoff = chopoff, numlines = numlines, percentile = .50)
 
-  stopifnot(class(x3p) == "x3p")
-  
-  SurfaceMatrix <- x3p$surface.matrix
-
-  NumberOfLines <- numlines - 2
-
-  NumberofYIncrements <- x3p$header.info$sizeY
-
-  NumberOfIncrementsBetweenLines <- floor(NumberofYIncrements/NumberOfLines)
-
-  MaximumX <- x3p$header.info$sizeX*x3p$header.info$incrementX
-
-  LowerXBound <- MaximumX * chopoff
-
-  UpperXBound <- MaximumX - (MaximumX * chopoff)
-
-  LowerYBound <- 0
-
-  UpperYBound <- x3p$header.info$sizeY*x3p$header.info$incrementY
-
-  IndexLowerXBound <- floor(LowerXBound/x3p$header.info$incrementX)
-
-  IndexUpperXBound <- ceiling(UpperXBound/x3p$header.info$incrementX)
-
-  SurfaceMatrix <- SurfaceMatrix[IndexLowerXBound:IndexUpperXBound,]
-
-  ProportionNA <- vector(mode = "numeric",length = NumberOfLines+1)
-
-  ProportionNA[1] <- mean(is.na(SurfaceMatrix[,1]))
-
-  for(i in 1:(NumberOfLines-1)){
-    ProportionNA[i+1] <- mean(is.na(SurfaceMatrix[,i*NumberOfIncrementsBetweenLines]))
-  }
-
-  ProportionNA[NumberOfLines + 1] <- mean(is.na(SurfaceMatrix[,x3p$header.info$sizeY]))
-
-  Median <- median(ProportionNA)
-  
-  return(Median)
-
+  # stopifnot(class(x3p) == "x3p")
+  #
+  # SurfaceMatrix <- x3p$surface.matrix
+  #
+  # NumberOfLines <- numlines - 2
+  #
+  # NumberofYIncrements <- x3p$header.info$sizeY
+  #
+  # NumberOfIncrementsBetweenLines <- floor(NumberofYIncrements/NumberOfLines)
+  #
+  # MaximumX <- x3p$header.info$sizeX*x3p$header.info$incrementX
+  #
+  # LowerXBound <- MaximumX * chopoff
+  #
+  # UpperXBound <- MaximumX - (MaximumX * chopoff)
+  #
+  # LowerYBound <- 0
+  #
+  # UpperYBound <- x3p$header.info$sizeY*x3p$header.info$incrementY
+  #
+  # IndexLowerXBound <- floor(LowerXBound/x3p$header.info$incrementX)
+  #
+  # IndexUpperXBound <- ceiling(UpperXBound/x3p$header.info$incrementX)
+  #
+  # SurfaceMatrix <- SurfaceMatrix[IndexLowerXBound:IndexUpperXBound,]
+  #
+  # ProportionNA <- vector(mode = "numeric",length = NumberOfLines+1)
+  #
+  # ProportionNA[1] <- mean(is.na(SurfaceMatrix[,1]))
+  #
+  # for(i in 1:(NumberOfLines-1)){
+  #   ProportionNA[i+1] <- mean(is.na(SurfaceMatrix[,i*NumberOfIncrementsBetweenLines]))
+  # }
+  #
+  # ProportionNA[NumberOfLines + 1] <- mean(is.na(SurfaceMatrix[,x3p$header.info$sizeY]))
+  #
+  # Median <- median(ProportionNA)
+  #
+  # return(Median)
 }
