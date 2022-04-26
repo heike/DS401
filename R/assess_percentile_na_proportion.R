@@ -11,12 +11,12 @@
 #' @param numlines Number of horizontal lines across the scan to find the median proportion of na values from
 #' @param percentile Specific percentile to choose from the number of horizontal lines
 #' @return median proportion of missing values
-#' @importFrom stats quantile
+#' @import
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
 #' assess_percentile_na_proportion(fau277_bb_l2)
-assess_percentile_na_proportion<- function(x3p, chopoff = 1/6, numlines = 200, percentile = 0.5) {
+assess_percentile_na_proportion<- function(x3p, chopoff = 1/7, numlines = 200, percentile = 0.8) {
 
   stopifnot(class(x3p) == "x3p")
 
@@ -60,3 +60,4 @@ assess_percentile_na_proportion<- function(x3p, chopoff = 1/6, numlines = 200, p
 
 }
 
+>>>>>>> 4c4d71d9d7abb55ce00500a619184c039c5f0a7c

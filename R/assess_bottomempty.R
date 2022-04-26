@@ -13,7 +13,7 @@
 #' data(fau277_bb_l2)
 #' assess_bottomempty(fau277_bb_l2) # bad scan
 #' assess_bottomempty(fau001_ba_l1) # good scan
-assess_bottomempty <- function(x3p, n_cutoff = .3){
+assess_bottomempty <- function(x3p, n_cutoff = .2){
   stopifnot(class(x3p) == "x3p")
 
 
