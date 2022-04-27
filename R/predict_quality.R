@@ -8,7 +8,7 @@
 #' @examples
 #' data(fau277_bb_l2)
 #' predict_quality(list(fau277_bb_l2, fau277_bb_l2), x3ptools::x3p_show_xml(fau277_bb_l2,"Comment")$Comment)
-predict_quality<- function(x3pobjectvector, x3pnamevector) {
+predict_quality<- function(x3pobjectlist, x3pnamevector) {
 
   for(i in 1:((length(x3pobjectlist))))
   {
@@ -37,7 +37,7 @@ predict_quality<- function(x3pobjectvector, x3pnamevector) {
     newdata$lighting_protocol[i] <- lighting_protocol(x3pnamevector[i])
   }
   
-  data(randomforest)
+  data(randomForest)
   Quality <- predict(randomforest, newdata = newdata, type = prob[,2])
   
   Quality_Type <- c(rep("", times = length(x3pobjectlist)))
