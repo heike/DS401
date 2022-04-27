@@ -2,16 +2,18 @@
 % Please edit documentation in R/predict_quality.R
 \name{predict_quality}
 \alias{predict_quality}
-\title{Predicts the quality of a vector of x3p scan's by outputing the random forest predicted probability that a scan's quality is good.}
+\title{Predicts the probability that a x3p scan will be good and also predicts the reason why it is bad quality if it is predicted to be bad quality.}
 \usage{
-predict_quality(x3pvector)
+predict_quality(x3pobjectvector, x3pnamevector)
 }
 \arguments{
-\item{x3pvector}{a vector of x3p objects to be classified as good or bad quality scans}
+\item{x3pobjectvector}{a vector of x3p objects to be classified as good or bad quality scans}
+
+\item{x3pnamevector}{a vector of names of x3p files}
 }
 \value{
-a vector of random forest probability scores
+a dataframe containing a vector of predicted probabilities of a scan being good and its predicted quality_type
 }
 \description{
-Predicts the quality of a vector of x3p scan's by outputing the random forest predicted probability that a scan's quality is good.
+Predicts the probability that a x3p scan will be good and also predicts the reason why it is bad quality if it is predicted to be bad quality.
 }

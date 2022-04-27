@@ -14,74 +14,59 @@ fau001_ba_l1 <- fau001_ba_l1 %>% x3p_sample(m=3)
 usethis::use_data(fau001_ba_l1, overwrite = TRUE)
 
 training <- read.csv("data-raw/randomforestdata.csv")
+training$quality <- factor(training$quality, levels = c("bad", "good"))
+training$lighting_protocol <- as.factor(training$lighting_protocol)
+
 usethis::use_data(training, internal = TRUE, overwrite = TRUE)
 
-###############
-
-library(randomForest)
-library(ggplot2)
-library(dplyr)
-
-training <- training %>% mutate(
-  label = quality,
-  label = ifelse(quality_type %in% c("tiny hole", "speckles of missings"), "good", label)
-)
-training <- training %>% mutate(
-  label = factor(label, levels = c("good", "bad"))
-)
-
-#data <- read.csv("lapd-training.csv")
+##########
 
 set.seed(1000)
 
+
+
+##80 percent train 20 percent test
 TrainIndex <- sample(nrow(training), size = 0.8*nrow(training), replace = FALSE)
 
-randomforest <-randomForest(
-  label ~ assess_bottomempty + assess_col_na + assess_median_na_proportion +
-    assess_middle_na_proportion + extract_na + lighting,
-  data = training, importance = TRUE, subset = TrainIndex)
+randomforest <-randomForest(quality ~extract_na + assess_percentile_na_proportion +
+                              assess_middle_na_proportion + assess_rotation +
+                              assess_col_na + assess_bottomempty +
+                              lighting_protocol,
+                            data = training, importance = TRUE, subset = TrainIndex)
 
-RandomForestProbability <- predict(randomforest, newdata = training[TrainIndex,], type = "prob")[,2]
-TrainHistogramData <- cbind(training[TrainIndex,], RandomForestProbability)
+usethis::use_data(randomforest, overwrite=TRUE)
+#############
 
-ggplot(data = TrainHistogramData, aes(x = RandomForestProbability, fill = quality)) +
-  geom_histogram() +
-  geom_vline(xintercept = 0.58, color = "grey50", size = 1) +
-  ggtitle("Distribution of RandomForest Predicted Probabilities on Training Data") +
-  theme(plot.title = element_text(hjust = 0.5, size = 25))
 
-probrandomforest = predict(randomforest, newdata = training[-TrainIndex, ], type = "prob")[,2]
 
-predictedrandomforest <- rep("bad", length(training[-TrainIndex,]$quality))
 
-predictedrandomforest[probrandomforest < (1- 0.58)] <- "good"
+##Create Random Forest for quality_type
+set.seed(1000)
+
+
+##Take out samples which are good quality type
+
+data_quality_type <- data %>% filter(quality == "bad")
+
+##Take out damage variable as there are only 2
+data_quality_type$quality_type[data_quality_type$quality_type == "damage"] <- "hole"
+
+
+data_quality_type$quality_type <- as.factor(data_quality_type$quality_type)
+levels(data_quality_type$quality_type)
+
+##80-20 train-test split
+TrainIndex_quality_type <- sample(1:length(data_quality_type$quality_type), size = (length(data_quality_type$quality_type)/5)*4, replace = FALSE)
+
+randomforest2 <- randomForest(quality_type ~ extract_na + assess_percentile_na_proportion + assess_rotation + assess_col_na + assess_bottomempty + lighting_protocol, data = data_quality_type, importance = TRUE, subset = TrainIndex_quality_type)
+
+RandomForest2Prediction <- predict(randomforest2, newdata = data_quality_type[-TrainIndex_quality_type,], type = "response")
 
 ##Confusion Matrix
-table(predictedrandomforest, training[-TrainIndex,]$quality)
+table(RandomForest2Prediction, data_quality_type[-TrainIndex_quality_type,]$quality_type)
 
-##Overall Misclassification Rate
-1-mean(predictedrandomforest == training[-TrainIndex,]$quality)
+##Overall Misclassificaiton Rate
+1-mean(RandomForest2Prediction == data_quality_type[-TrainIndex_quality_type,]$quality_type)
 
 ##Variable Importance Plot
-varImpPlot(randomforest)
-
-
-##Show Examples of Good at 1.00 RandomForestProbability
-TrainHistogramData[TrainHistogramData$RandomForestProbability == 1, ]$x3p_path[1]
-
-##Show Examples of Bad at Lowest RandomForestProbability
-head(TrainHistogramData %>% arrange(RandomForestProbability), 1)$x3p_path
-
-##Show Example of Bad with the highest RandomForestProbability
-tail(TrainHistogramData %>% filter(quality == "bad") %>% arrange(RandomForestProbability),1)$x3p_path
-
-##Show Example of Good with the lowest RandomForestProbability
-head(TrainHistogramData %>% filter(quality == "good") %>% arrange(RandomForestProbability),1)$x3p_path
-
-
-##Show examples of missclassified "Bad" Scans that were predicted as good
-TestData <- cbind(labeledsamples[-TrainIndex,], probrandomforest)
-TestData %>% filter(quality == "bad", probrandomforest > 0.58) %>% arrange(probrandomforest) %>% select(x3p_path, probrandomforest)
-
-
-
+varImpPlot(randomforest2)

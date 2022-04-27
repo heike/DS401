@@ -15,3 +15,12 @@
 #' data(fau001_ba_l1)
 #' x3p_image(fau001_ba_l1)
 "fau001_ba_l1"
+
+#' Randomforest predicting oveeall scan quality
+#'
+#' some more text
+#' @import randomForest
+#' @examples
+#' data(randomforest)
+#' randomforest
+"randomforest"
