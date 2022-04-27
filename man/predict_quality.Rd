@@ -17,3 +17,7 @@ a dataframe containing a vector of predicted probabilities of a scan being good 
 \description{
 Predicts the probability that a x3p scan will be good and also predicts the reason why it is bad quality if it is predicted to be bad quality.
 }
+\examples{
+data(fau277_bb_l2)
+predict_quality(list(fau277_bb_l2, fau277_bb_l2), x3ptools::x3p_show_xml(fau277_bb_l2,"Comment")$Comment)
+}
