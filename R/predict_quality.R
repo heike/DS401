@@ -32,7 +32,7 @@ predict_quality<- function(x3pobjectlist, x3pnamevector) {
     newdata$assess_bottomempty[i] <- assess_bottomempty(x3pobjectlist[[i]])
     newdata$assess_col_na[i] <- assess_col_na(x3pobjectlist[[i]])
     newdata$extract_na[i] <- extract_na(x3pobjectlist[[i]])
-    newdata$assess_middle_na_proportion[i] <- assess_middle_na_proportion(x3pobjectliist[[i]])
+    newdata$assess_middle_na_proportion[i] <- assess_middle_na_proportion(x3pobjectlist[[i]])
     newdata$assess_rotation[i] <- assess_rotation(x3pobjectlist[[i]])
     newdata$lighting_protocol[i] <- lighting_protocol(x3pnamevector[i])
   }
