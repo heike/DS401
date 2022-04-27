@@ -51,4 +51,13 @@
   <url>
     <loc>/reference/index.html</loc>
   </url>
+  <url>
+    <loc>/reference/lighting_protocol.html</loc>
+  </url>
+  <url>
+    <loc>/reference/predict_quality.html</loc>
+  </url>
+  <url>
+    <loc>/reference/randomforest.html</loc>
+  </url>
 </urlset>
