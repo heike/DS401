@@ -2,11 +2,11 @@ Package: DS401
 Title: Quality Assessment of Scans of Land Engraved Areas on Fired Bullets
 Version: 0.0.0.9000
 Authors@R: c(
-    person("Jacob", "Baalsen", email = "jbaalson@iastate.edu", role = c("aut", "cre")),
-    person("Yangfan", "Cai", email = "yangfanc@iastate.edu", role = c("aut", "cre")),
-    person("Michael", "Egle", email = "mjegle@iastate.edu", role = c("aut", "cre")),
-    person("Kedell", "Guevara", email = "kguevara@iastate.edu", role = c("aut", "cre")),
-    person("Jacob", "Townsley", email = "jtowns@iastate.edu", role = c("aut", "cre")),
+    person("Jacob", "Baalsen", email = "jbaalson@iastate.edu", role = c("aut")),
+    person("Yangfan", "Cai", email = "yangfanc@iastate.edu", role = c("aut")),
+    person("Michael", "Egle", email = "mjegle@iastate.edu", role = c("aut")),
+    person("Kedell", "Guevara", email = "kguevara@iastate.edu", role = c("aut")),
+    person("Jacob", "Townsley", email = "jtowns@iastate.edu", role = c("aut")),
     person("Heike", "Hofmann", email = "hofmann@iastate.edu", role = c("aut", "cre"), comment=c(ORCID="0000-0001-6216-5183"))
     )
 Description: When topographic scans are taken under Confocal Light Microscopes 

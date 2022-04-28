@@ -14,7 +14,7 @@ predict_quality<- function(x3pobjectlist, x3pnamevector) {
   {
     stopifnot(class(x3pobjectlist[[i]]) == "x3p")
   }
-  
+
   data_assess_percentile_na_proportion <- c(rep(0, times = length(x3pobjectlist)))
   data_assess_bottomempty <- c(rep(0, times = length(x3pobjectlist)))
   data_assess_col_na <- c(rep(0,times = length(x3pobjectlist)))
@@ -22,11 +22,11 @@ predict_quality<- function(x3pobjectlist, x3pnamevector) {
   data_assess_middle_na_proportion <- c(rep(0, times = length(x3pobjectlist)))
   data_assess_rotation <- c(rep(0, times = length(x3pobjectlist)))
   data_lighting_protocol <- c(rep(0, times = length(x3pobjectlist)))
-  
+
   newdata <- data.frame(data_assess_percentile_na_proportion, data_assess_col_na, data_extract_na, data_assess_middle_na_proportion, data_assess_rotation, data_lighting_protocol)
   names(newdata) <- c("assess_percentile_na_proportion", "assess_col_na", "extract_na", "assess_middle_na_proportion", "assess_rotation", "lighting_protocol")
-  
-  
+
+
   for(i in 1:dim(newdata)[1]){
     newdata$assess_percentile_na_proportion[i] <- assess_median_na_proportion(x3pobjectlist[[i]])
     newdata$assess_bottomempty[i] <- assess_bottomempty(x3pobjectlist[[i]])
@@ -36,23 +36,24 @@ predict_quality<- function(x3pobjectlist, x3pnamevector) {
     newdata$assess_rotation[i] <- assess_rotation(x3pobjectlist[[i]])
     newdata$lighting_protocol[i] <- lighting_protocol(x3pnamevector[i])
   }
-  
-  data(randomForest)
+
+  data(randomforest)
+  data(randomforest2)
   Quality <- predict(randomforest, newdata = newdata, type = prob[,2])
-  
+
   Quality_Type <- c(rep("", times = length(x3pobjectlist)))
-  
+
   for(i in 1:dim(newdata)){
     if(Quality[i] <= 0.57){
-      Quality_Type[i] <- predict(randomForest2, newdata = newdata[i], type = 'response')
+      Quality_Type[i] <- predict(randomforest2, newdata = newdata[i], type = 'response')
     } else{
       Quality_Type[i] <- "good"
     }
-    
+
   }
-  
+
   output <- data.frame(Quality, Quality_Type)
-  
+
   return(output)
 }
 

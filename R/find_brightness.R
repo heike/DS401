@@ -18,6 +18,7 @@ find_brightness <- function(x3p)
 #'
 #' @param name name of an x3p object
 #' @export
+#' @importFrom stringr str_locate str_sub
 #' @return 1 for 20% autolight, and 2 for 20% x 10 autolight ('flooding')
 lighting_protocol <- function(name)
 {

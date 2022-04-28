@@ -16,7 +16,7 @@
 #' x3p_image(fau001_ba_l1)
 "fau001_ba_l1"
 
-#' Randomforest predicting oveeall scan quality
+#' Randomforest predicting overall scan quality
 #'
 #' some more text
 #' @import randomForest
@@ -24,3 +24,12 @@
 #' data(randomforest)
 #' randomforest
 "randomforest"
+
+#' Randomforest predicting reason for lack of quality
+#'
+#' some more text
+#' @import randomForest
+#' @examples
+#' data(randomforest2)
+#' randomforest2
+"randomforest2"
