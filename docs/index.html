@@ -5,14 +5,20 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What the Package Does (One Line, Title Case) • DS401</title>
+<title>Quality Assessment of Scans of Land Engraved Areas on Fired Bullets • DS401</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="What the Package Does (One Line, Title Case)">
-<meta property="og:description" content="What the package does (one paragraph).">
+<script src="pkgdown.js"></script><meta property="og:title" content="Quality Assessment of Scans of Land Engraved Areas on Fired Bullets">
+<meta property="og:description" content="When topographic scans are taken under Confocal Light Microscopes 
+    even small differences in settings can have a large impact on the acquired
+    data. This package implements a set of features assessing the quality of a 
+    scan by investigating the structure where the scan has missing values.
+    These features are used as training data in two random forests that predict
+    the quality of scans, and if found lacking, also predict the reason for its
+    lack of quality.">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -105,6 +111,39 @@
 <h3 id="row-and-column-wise-missing-values">Row and column-wise missing values<a class="anchor" aria-label="anchor" href="#row-and-column-wise-missing-values"></a>
 </h3>
 <p>Document use of functions <code>extract_na_column</code> and <code>extract_na_row</code> for both a good and a bad plot.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">nas_bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_column.html">extract_na_column</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span>
+<span class="va">nas_good</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_column.html">extract_na_column</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">nas_bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_row.html">extract_na_row</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span>
+<span class="va">nas_good</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_row.html">extract_na_row</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span>
+
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span></code></pre></div>
+<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="100%"></p>
+</div>
+<div class="section level3">
+<h3 id="col_na-function">col_na Function<a class="anchor" aria-label="anchor" href="#col_na-function"></a>
+</h3>
+<p>The col_na function’s goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span>
+<span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="assess-median-na-proportion">Assess Median NA Proportion<a class="anchor" aria-label="anchor" href="#assess-median-na-proportion"></a>
+</h3>
+<p>‘assess_median_na_proportion’ calculates the median proportion of NA values present in the middle of a 3d scan from a specific number of different y values. Specifically this variable is calculating the amount of feathering occuring in the 3d scans.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span><span class="co"># This scan seems to have a problem with feathering</span>
+<span class="co">#&gt; [1] 0.08906883</span>
+<span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span><span class="co"># good scan</span>
+<span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
 <p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code><a href="https://devtools.r-lib.org/reference/build_rmd.html" class="external-link">devtools::build_readme()</a></code> is handy for this.</p>
 </div>
 </div>
@@ -115,8 +154,8 @@
     <div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li>`use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license</li>
+<li><a href="LICENSE.html">Full license</a></li>
+<li><small><a href="https://opensource.org/licenses/mit-license.php" class="external-link">MIT</a> + file <a href="LICENSE-text.html">LICENSE</a></small></li>
 </ul>
 </div>
 
@@ -131,7 +170,12 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>First Last <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/YOUR-ORCID-ID" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li>Jacob Baalsen <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Yangfan Cai <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Michael Egle <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Kedell Guevara <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Jacob Townsley <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Heike Hofmann <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0001-6216-5183" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
 </ul>
 </div>
 
@@ -148,7 +192,7 @@
 
       <footer><div class="copyright">
   <p></p>
-<p>Developed by First Last.</p>
+<p>Developed by Jacob Baalsen, Yangfan Cai, Michael Egle, Kedell Guevara, Jacob Townsley, Heike Hofmann.</p>
 </div>
 
 <div class="pkgdown">

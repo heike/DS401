@@ -4,10 +4,34 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
     <loc>/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/assess_bottomempty.html</loc>
+  </url>
+  <url>
+    <loc>/reference/assess_col_na.html</loc>
+  </url>
+  <url>
+    <loc>/reference/assess_median_na_proportion.html</loc>
+  </url>
+  <url>
+    <loc>/reference/assess_middle_na_proportion.html</loc>
+  </url>
+  <url>
+    <loc>/reference/assess_percentile_na_proportion.html</loc>
+  </url>
+  <url>
+    <loc>/reference/assess_rotation.html</loc>
   </url>
   <url>
     <loc>/reference/extract_median_na_proportion.html</loc>
@@ -28,6 +52,18 @@
     <loc>/reference/fau277_bb_l2.html</loc>
   </url>
   <url>
+    <loc>/reference/find_brightness.html</loc>
+  </url>
+  <url>
     <loc>/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>/reference/lighting_protocol.html</loc>
+  </url>
+  <url>
+    <loc>/reference/predict_quality.html</loc>
+  </url>
+  <url>
+    <loc>/reference/randomforest.html</loc>
   </url>
 </urlset>

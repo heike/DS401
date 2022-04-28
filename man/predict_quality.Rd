@@ -4,10 +4,10 @@
 \alias{predict_quality}
 \title{Predicts the probability that a x3p scan will be good and also predicts the reason why it is bad quality if it is predicted to be bad quality.}
 \usage{
-predict_quality(x3pobjectvector, x3pnamevector)
+predict_quality(x3pobjectlist, x3pnamevector)
 }
 \arguments{
-\item{x3pobjectvector}{a vector of x3p objects to be classified as good or bad quality scans}
+\item{x3pobjectlist}{a list of x3p objects to be classified as good or bad quality scans}
 
 \item{x3pnamevector}{a vector of names of x3p files}
 }

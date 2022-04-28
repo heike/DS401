@@ -1,12 +1,22 @@
 Package: DS401
-Title: What the Package Does (One Line, Title Case)
+Title: Quality Assessment of Scans of Land Engraved Areas on Fired Bullets
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: c(
+    person("Jacob", "Baalsen", email = "jbaalson@iastate.edu", role = c("aut", "cre")),
+    person("Yangfan", "Cai", email = "yangfanc@iastate.edu", role = c("aut", "cre")),
+    person("Michael", "Egle", email = "mjegle@iastate.edu", role = c("aut", "cre")),
+    person("Kedell", "Guevara", email = "kguevara@iastate.edu", role = c("aut", "cre")),
+    person("Jacob", "Townsley", email = "jtowns@iastate.edu", role = c("aut", "cre")),
+    person("Heike", "Hofmann", email = "hofmann@iastate.edu", role = c("aut", "cre"), comment=c(ORCID="0000-0001-6216-5183"))
+    )
+Description: When topographic scans are taken under Confocal Light Microscopes 
+    even small differences in settings can have a large impact on the acquired
+    data. This package implements a set of features assessing the quality of a 
+    scan by investigating the structure where the scan has missing values.
+    These features are used as training data in two random forests that predict
+    the quality of scans, and if found lacking, also predict the reason for its
+    lack of quality.
+License: MIT + file LICENSE
 Encoding: UTF-8
 Depends:
     R (>= 4.0.0)
