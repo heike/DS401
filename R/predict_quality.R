@@ -4,6 +4,7 @@
 #' @param x3pnamevector a vector of names of x3p files
 #' @return a dataframe with one row, containing all feature values and a prediction of the scan quality
 #' @import randomForest
+#' @import dplyr
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
@@ -29,7 +30,7 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
 
   data(randomforest)
   data(randomforest2)
-  reqire(randomForest)
+  require(randomForest)
   newdata$quality <- predict(randomforest, newdata = newdata, type = "prob")[,2]
   newdata$quality_type <- "good"
   if (newdata$quality[1] <= cutoff) {
