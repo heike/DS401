@@ -112,4 +112,46 @@ assess_median_na_proportion(fau277_bb_l2)# This scan seems to have a problem wit
 assess_median_na_proportion(fau001_ba_l1)# good scan
 ```
 
+### Assess Bottom Empty
+
+```{r}
+assess_bottomempty(fau277_bb_l2)
+```
+
+### Assess Middle NA Proportion
+
+```{r}
+assess_middle_na_proportion(fau277_bb_l2)
+```
+
+### Assess Percentile NA Proportion
+
+```{r}
+assess_percentile_na_proportion(fau227_bb_l2)
+```
+
+### Assess Rotation
+
+```{r}
+assess_rotation(fau227_bb_l2)
+```
+
+### Extract Median NA Proportion
+
+```{r}
+extract_median_na_proportion(fau227_bb_l2)
+```
+
+### Extract NA
+
+```{r}
+extract_na(fau227_bb_l2)
+```
+
+### Extract NA Column
+
+```{r}
+extract_na_column(fau227_bb_l2)
+```
+
 You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this. 
