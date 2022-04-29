@@ -23,7 +23,9 @@ Depends:
 Imports:
     x3ptools,
     stringr,
-    randomForest
+    randomForest,
+    tibble,
+    purrr
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 LazyData: true
