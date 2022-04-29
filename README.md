@@ -50,9 +50,11 @@ scans.
 
 ### Feature extracted
 
+#### Overall number of missing values
+
 `extract_na` calculates the percentage of values that are missing in the
-surface matrix of the scan. For the scan showns above, the percentages
-are quite high for the bad scan and low for the good scan:
+surface matrix of the scan. For the scans shown above, the percentages
+are quite high for the bad scan and low for the good scan
 
 ``` r
 extract_na(fau277_bb_l2)
@@ -61,33 +63,9 @@ extract_na(fau001_ba_l1)
 #> [1] 13.83538
 ```
 
-### Row and column-wise missing values
+#### col_na Function
 
-Document use of functions `extract_na_column` and `extract_na_row` for
-both a good and a bad plot.
-
-``` r
-nas_bad <- extract_na_column(fau277_bb_l2) # this scan has a particularly high percentage of missing values
-nas_good <- extract_na_column(fau001_ba_l1) # good scan
-plot((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
-points(nas_bad, col=4)
-```
-
-<img src="man/figures/README-unnamed-chunk-7-1.png" width="100%" />
-
-``` r
-nas_bad <- extract_na_row(fau277_bb_l2) # this scan has a particularly high percentage of missing values
-nas_good <- extract_na_row(fau001_ba_l1) # good scan
-
-plot(nas_bad, col=4)
-points((1:length(nas_good))*3, nas_good, col =2) # similar pattern to above, but low values for most of the scan
-```
-
-<img src="man/figures/README-unnamed-chunk-8-1.png" width="100%" />
-
-### col\_na Function
-
-The col\_na function’s goal is to distinguish between good and bad scans
+The col_na function’s goal is to distinguish between good and bad scans
 based on the proportion of columns with large proportions of missing
 values. It takes in three parameters, which are an x3p object, a
 percentage to be used as the number acceptable percentage of missing
@@ -96,14 +74,14 @@ threshold for a good scan.
 
 ``` r
 assess_col_na(fau277_bb_l2)
-#> [1] FALSE
+#> [1] 4.716293
 assess_col_na(fau001_ba_l1)
-#> [1] TRUE
+#> [1] 0.8625219
 ```
 
-### Assess Median NA Proportion
+#### Assess Median NA Proportion
 
-‘assess\_median\_na\_proportion’ calculates the median proportion of NA
+‘assess_median_na_proportion’ calculates the median proportion of NA
 values present in the middle of a 3d scan from a specific number of
 different y values. Specifically this variable is calculating the amount
 of feathering occuring in the 3d scans.
@@ -115,5 +93,47 @@ assess_median_na_proportion(fau001_ba_l1)# good scan
 #> [1] 0.001310616
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+#### Assess Bottom Empty
+
+``` r
+assess_bottomempty(fau277_bb_l2)
+#> [1] 95.20528
+assess_bottomempty(fau001_ba_l1)
+#> [1] 22.90831
+```
+
+#### Assess Middle NA Proportion
+
+``` r
+assess_middle_na_proportion(fau277_bb_l2)
+#> [1] 0.316787
+assess_middle_na_proportion(fau001_ba_l1)
+#> [1] 0.02565556
+```
+
+#### Assess Percentile NA Proportion
+
+``` r
+assess_percentile_na_proportion(fau277_bb_l2)
+#> [1] 0.7013605
+assess_percentile_na_proportion(fau001_ba_l1)
+#> [1] 0.00244798
+```
+
+#### Assess Rotation
+
+``` r
+assess_rotation(fau277_bb_l2)
+#> [1] 1.720705
+assess_rotation(fau001_ba_l1)
+#> [1] 1.098612
+```
+
+#### Extract Median NA Proportion
+
+``` r
+extract_median_na_proportion(fau277_bb_l2)
+#> [1] 0.08906883
+extract_median_na_proportion(fau001_ba_l1)
+#> [1] 0.001310616
+```
