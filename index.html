@@ -99,51 +99,81 @@
 <div class="section level3">
 <h3 id="feature-extracted">Feature extracted<a class="anchor" aria-label="anchor" href="#feature-extracted"></a>
 </h3>
-<p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scan showns above, the percentages are quite high for the bad scan and low for the good scan:</p>
+<div class="section level4">
+<h4 id="overall-number-of-missing-values">Overall number of missing values<a class="anchor" aria-label="anchor" href="#overall-number-of-missing-values"></a>
+</h4>
+<p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scans shown above, the percentages are quite high for the bad scan and low for the good scan</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 38.26887</span>
 <span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
 <span class="co">#&gt; [1] 13.83538</span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="row-and-column-wise-missing-values">Row and column-wise missing values<a class="anchor" aria-label="anchor" href="#row-and-column-wise-missing-values"></a>
-</h3>
-<p>Document use of functions <code>extract_na_column</code> and <code>extract_na_row</code> for both a good and a bad plot.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">nas_bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_column.html">extract_na_column</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span>
-<span class="va">nas_good</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_column.html">extract_na_column</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-7-1.png" width="100%"></p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">nas_bad</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_row.html">extract_na_row</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># this scan has a particularly high percentage of missing values</span>
-<span class="va">nas_good</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/extract_na_row.html">extract_na_row</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span>
-
-<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">nas_bad</span>, col<span class="op">=</span><span class="fl">4</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/graphics/points.html" class="external-link">points</a></span><span class="op">(</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fu"><a href="https://rdrr.io/r/base/length.html" class="external-link">length</a></span><span class="op">(</span><span class="va">nas_good</span><span class="op">)</span><span class="op">)</span><span class="op">*</span><span class="fl">3</span>, <span class="va">nas_good</span>, col <span class="op">=</span><span class="fl">2</span><span class="op">)</span> <span class="co"># similar pattern to above, but low values for most of the scan</span></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-8-1.png" width="100%"></p>
-</div>
-<div class="section level3">
-<h3 id="col_na-function">col_na Function<a class="anchor" aria-label="anchor" href="#col_na-function"></a>
-</h3>
+<div class="section level4">
+<h4 id="col_na-function">col_na Function<a class="anchor" aria-label="anchor" href="#col_na-function"></a>
+</h4>
 <p>The col_na function’s goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] FALSE</span>
+<span class="co">#&gt; [1] 4.716293</span>
 <span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code></pre></div>
+<span class="co">#&gt; [1] 0.8625219</span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="assess-median-na-proportion">Assess Median NA Proportion<a class="anchor" aria-label="anchor" href="#assess-median-na-proportion"></a>
-</h3>
+<div class="section level4">
+<h4 id="assess-median-na-proportion">Assess Median NA Proportion<a class="anchor" aria-label="anchor" href="#assess-median-na-proportion"></a>
+</h4>
 <p>‘assess_median_na_proportion’ calculates the median proportion of NA values present in the middle of a 3d scan from a specific number of different y values. Specifically this variable is calculating the amount of feathering occuring in the 3d scans.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span><span class="co"># This scan seems to have a problem with feathering</span>
 <span class="co">#&gt; [1] 0.08906883</span>
 <span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span><span class="co"># good scan</span>
 <span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
+</div>
+<div class="section level4">
+<h4 id="assess-bottom-empty">Assess Bottom Empty<a class="anchor" aria-label="anchor" href="#assess-bottom-empty"></a>
+</h4>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_bottomempty.html">assess_bottomempty</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 95.20528</span>
+<span class="fu"><a href="reference/assess_bottomempty.html">assess_bottomempty</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 22.90831</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="assess-middle-na-proportion">Assess Middle NA Proportion<a class="anchor" aria-label="anchor" href="#assess-middle-na-proportion"></a>
+</h4>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_middle_na_proportion.html">assess_middle_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.316787</span>
+<span class="fu"><a href="reference/assess_middle_na_proportion.html">assess_middle_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.02565556</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="assess-percentile-na-proportion">Assess Percentile NA Proportion<a class="anchor" aria-label="anchor" href="#assess-percentile-na-proportion"></a>
+</h4>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_percentile_na_proportion.html">assess_percentile_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.7013605</span>
+<span class="fu"><a href="reference/assess_percentile_na_proportion.html">assess_percentile_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.00244798</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="assess-rotation">Assess Rotation<a class="anchor" aria-label="anchor" href="#assess-rotation"></a>
+</h4>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/assess_rotation.html">assess_rotation</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1.720705</span>
+<span class="fu"><a href="reference/assess_rotation.html">assess_rotation</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1.098612</span></code></pre></div>
+</div>
+<div class="section level4">
+<h4 id="extract-median-na-proportion">Extract Median NA Proportion<a class="anchor" aria-label="anchor" href="#extract-median-na-proportion"></a>
+</h4>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/extract_median_na_proportion.html">extract_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.08906883</span>
+<span class="fu"><a href="reference/extract_median_na_proportion.html">extract_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
+<span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
+</div>
 </div>
 </div>
 </div>
