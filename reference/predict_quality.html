@@ -44,26 +44,29 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">predict_quality</span><span class="op">(</span><span class="va">x3pobjectvector</span>, <span class="va">x3pnamevector</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">predict_quality</span><span class="op">(</span><span class="va">x3plist</span>, <span class="va">x3pnamevector</span><span class="op">)</span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
-    <dl><dt>x3pobjectvector</dt>
-<dd><p>a vector of x3p objects to be classified as good or bad quality scans</p></dd>
+    <dl><dt>x3plist</dt>
+<dd><p>list of x3p scans of a bullet land</p></dd>
 <dt>x3pnamevector</dt>
 <dd><p>a vector of names of x3p files</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a dataframe containing a vector of predicted probabilities of a scan being good and its predicted quality_type</p>
+    <p>a dataframe with one row, containing all feature values and a prediction of the scan quality</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">predict_quality</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, <span class="va">fau277_bb_l2</span><span class="op">)</span>, <span class="fu">x3ptools</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_show_xml.html" class="external-link">x3p_show_xml</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>,<span class="st">"Comment"</span><span class="op">)</span><span class="op">$</span><span class="va">Comment</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in str_locate(name, "auto"):</span> could not find function "str_locate"</span>
+<span class="r-in"><span class="fu">predict_quality</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, <span class="va">fau277_bb_l2</span><span class="op">)</span>, x3pnamevector<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Called from: predict_quality(list(fau277_bb_l2, fau277_bb_l2), x3pnamevector = c(1, </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     2))</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> debug: output &lt;- tibble(x3p = I(x3plist), x3pname = x3pnamevector)</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in tibble(x3p = I(x3plist), x3pname = x3pnamevector):</span> could not find function "tibble"</span>
 </code></pre></div>
     </div>
   </div>
@@ -74,7 +77,7 @@
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by First Last.</p>
+  <p></p><p>Developed by Jacob Baalsen, Yangfan Cai, Michael Egle, Kedell Guevara, Jacob Townsley, Heike Hofmann.</p>
 </div>
 
 <div class="pkgdown">

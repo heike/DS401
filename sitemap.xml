@@ -4,6 +4,12 @@
     <loc>/404.html</loc>
   </url>
   <url>
+    <loc>/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>/LICENSE.html</loc>
+  </url>
+  <url>
     <loc>/authors.html</loc>
   </url>
   <url>
@@ -58,6 +64,12 @@
     <loc>/reference/predict_quality.html</loc>
   </url>
   <url>
+    <loc>/reference/predict_quality_one.html</loc>
+  </url>
+  <url>
     <loc>/reference/randomforest.html</loc>
+  </url>
+  <url>
+    <loc>/reference/randomforest2.html</loc>
   </url>
 </urlset>
