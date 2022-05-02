@@ -4,7 +4,6 @@
 #' @param x3pnamevector a vector of names of x3p files
 #' @return a dataframe with one row, containing all feature values and a prediction of the scan quality
 #' @import randomForest
-#' @import dplyr
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
@@ -27,10 +26,10 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
   newdata <- newdata %>% mutate(
     lighting_protocol = factor(lighting_protocol, levels=c(1,2))
   )
-  
+
   data(randomforest)
   data(randomforest2)
-  require(randomForest)
+  reqire(randomForest)
   newdata$quality <- predict(randomforest, newdata = newdata, type = "prob")[,2]
   newdata$quality_type <- "good"
   if (newdata$quality[1] <= cutoff) {
@@ -48,13 +47,12 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
 #' @import randomForest
 #' @importFrom purrr map
 #' @importFrom tibble tibble
-#' @import dplyr
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
 #' predict_quality(list(fau277_bb_l2, fau277_bb_l2), x3pnamevector=c(1,2))
 predict_quality <- function(x3plist, x3pnamevector) {
-  
+browser()
   output <- tibble(x3p=I(x3plist), x3pname=x3pnamevector)
   output <- mutate(output,
     features = purrr::map(x3p, .f = predict_quality_one)
