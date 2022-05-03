@@ -4,6 +4,7 @@
 #' @param x3pnamevector a vector of names of x3p files
 #' @return a dataframe with one row, containing all feature values and a prediction of the scan quality
 #' @import randomForest
+#' @importFrom utils data
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
@@ -21,18 +22,18 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
   data_assess_rotation <- assess_rotation(x3p)
   data_lighting_protocol <- 1 # lighting_protocol(x3p)
 
-  newdata <- data.frame(data_assess_percentile_na_proportion, data_assess_col_na, data_extract_na, data_assess_middle_na_proportion, data_assess_rotation, data_assess_bottomempty, data_lighting_protocol)
-  names(newdata) <- c("assess_percentile_na_proportion", "assess_col_na", "extract_na", "assess_middle_na_proportion", "assess_rotation", "assess_bottomempty", "lighting_protocol")
-  newdata <- newdata %>% mutate(
+  newdata <- data.frame(quality_pred=NA, quality_type=NA, data_assess_percentile_na_proportion, data_assess_col_na, data_extract_na, data_assess_middle_na_proportion, data_assess_rotation, data_assess_bottomempty, data_lighting_protocol)
+  names(newdata) <- c("quality_pred", "quality_type",   "assess_percentile_na_proportion", "assess_col_na", "extract_na", "assess_middle_na_proportion", "assess_rotation", "assess_bottomempty", "lighting_protocol")
+  newdata <- mutate(newdata,
     lighting_protocol = factor(lighting_protocol, levels=c(1,2))
   )
 
-  data(randomforest)
-  data(randomforest2)
-  reqire(randomForest)
-  newdata$quality <- predict(randomforest, newdata = newdata, type = "prob")[,2]
+  data("randomforest")
+  data("randomforest2")
+  require(randomForest)
+  newdata$quality_pred <- predict(randomforest, newdata = newdata, type = "prob")[,2]
   newdata$quality_type <- "good"
-  if (newdata$quality[1] <= cutoff) {
+  if (newdata$quality_pred[1] <= cutoff) {
     newdata$quality_type <- predict(randomforest2, newdata = newdata, type = 'response')
   }
 
@@ -47,17 +48,20 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
 #' @import randomForest
 #' @importFrom purrr map
 #' @importFrom tibble tibble
+#' @importFrom dplyr mutate
+#' @importFrom utils data
+#' @importFrom tidyr unnest
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
 #' predict_quality(list(fau277_bb_l2, fau277_bb_l2), x3pnamevector=c(1,2))
 predict_quality <- function(x3plist, x3pnamevector) {
-browser()
-  output <- tibble(x3p=I(x3plist), x3pname=x3pnamevector)
+#browser()
+  output <- tibble(x3p=I(x3plist), x3pname = x3pnamevector)
   output <- mutate(output,
-    features = purrr::map(x3p, .f = predict_quality_one)
+    features = purrr::map(x3p, .f = predict_quality_one, cutoff=0.57)
   )
-
+  output <- unnest(output, cols = features)
   return(output)
 }
 

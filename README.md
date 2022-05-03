@@ -137,3 +137,19 @@ extract_median_na_proportion(fau277_bb_l2)
 extract_median_na_proportion(fau001_ba_l1)
 #> [1] 0.001310616
 ```
+
+### Predictions
+
+``` r
+predict_quality(list(fau277_bb_l2, fau001_ba_l1), c(1,1))
+#> Loading required package: randomForest
+#> randomForest 4.7-1
+#> Type rfNews() to see new features/changes/bug fixes.
+#> # A tibble: 2 × 11
+#>   x3p       x3pname quality_pred quality_type assess_percentile_n… assess_col_na
+#>   <I<list>>   <dbl>        <dbl> <chr>                       <dbl>         <dbl>
+#> 1 <x3p>           1        0.85  good                      0.0891          4.72 
+#> 2 <x3p>           1        0.906 good                      0.00131         0.863
+#> # … with 5 more variables: extract_na <dbl>, assess_middle_na_proportion <dbl>,
+#> #   assess_rotation <dbl>, assess_bottomempty <dbl>, lighting_protocol <fct>
+```

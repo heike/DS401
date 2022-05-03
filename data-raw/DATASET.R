@@ -17,7 +17,10 @@ training <- read.csv("data-raw/randomforestdata.csv")
 training$quality <- factor(training$quality, levels = c("bad", "good"))
 training$lighting_protocol <- as.factor(training$lighting_protocol)
 
-usethis::use_data(training, internal = TRUE, overwrite = TRUE)
+training$quality_pred <- predict(randomforest, newdata = training, type="prob")[,2]
+training$quality_type <- predict(randomforest2, newdata = training, type="response")
+
+usethis::use_data(training, overwrite = TRUE)
 
 ##########
 

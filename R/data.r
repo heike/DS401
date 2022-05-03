@@ -33,3 +33,14 @@
 #' data(randomforest2)
 #' randomforest2
 "randomforest2"
+
+#' Training data and results
+#'
+#' @examples
+#' data(training)
+#' library(ggplot2)
+#' library(magrittr)
+#' training %>%
+#'   ggplot(aes(x = quality_pred, fill = quality)) +
+#'     geom_histogram(binwidth = 0.025)
+"training"

@@ -128,4 +128,8 @@ extract_median_na_proportion(fau277_bb_l2)
 extract_median_na_proportion(fau001_ba_l1)
 ```
 
+### Predictions
 
+```{r}
+predict_quality(list(fau277_bb_l2, fau001_ba_l1), c(1,1))
+```
