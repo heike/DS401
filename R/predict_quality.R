@@ -1,7 +1,7 @@
 #' Predicts the probability that a x3p scan will be good and also predicts the reason why it is bad quality if it is predicted to be bad quality.
 #'
 #' @param x3p x3p scan of a bullet land
-#' @param x3pnamevector a vector of names of x3p files
+#' @param cutoff numeric value in [0,1] used as cut off between bad scans and good ones.
 #' @return a dataframe with one row, containing all feature values and a prediction of the scan quality
 #' @import randomForest
 #' @importFrom utils data
@@ -28,8 +28,8 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
     lighting_protocol = factor(lighting_protocol, levels=c(1,2))
   )
 
-  data("randomforest")
-  data("randomforest2")
+  data("randomforest", package="DS401")
+  data("randomforest2", package="DS401")
   require(randomForest)
   newdata$quality_pred <- predict(randomforest, newdata = newdata, type = "prob")[,2]
   newdata$quality_type <- "good"
@@ -57,6 +57,7 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
 #' predict_quality(list(fau277_bb_l2, fau277_bb_l2), x3pnamevector=c(1,2))
 predict_quality <- function(x3plist, x3pnamevector) {
 #browser()
+  x3p <- features <- NULL
   output <- tibble(x3p=I(x3plist), x3pname = x3pnamevector)
   output <- mutate(output,
     features = purrr::map(x3p, .f = predict_quality_one, cutoff=0.57)

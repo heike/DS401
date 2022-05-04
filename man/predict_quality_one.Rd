@@ -9,7 +9,7 @@ predict_quality_one(x3p, cutoff = 0.57)
 \arguments{
 \item{x3p}{x3p scan of a bullet land}
 
-\item{x3pnamevector}{a vector of names of x3p files}
+\item{cutoff}{numeric value in \link{0,1} used as cut off between bad scans and good ones.}
 }
 \value{
 a dataframe with one row, containing all feature values and a prediction of the scan quality
