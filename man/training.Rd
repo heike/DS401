@@ -5,7 +5,7 @@
 \alias{training}
 \title{Training data and results}
 \format{
-An object of class \code{data.frame} with 7179 rows and 18 columns.
+An object of class \code{data.frame} with 7179 rows and 19 columns.
 }
 \usage{
 training

@@ -20,7 +20,7 @@ training$lighting_protocol <- as.factor(training$lighting_protocol)
 training$quality_pred <- predict(randomforest, newdata = training, type="prob")[,2]
 training$quality_type <- predict(randomforest2, newdata = training, type="response")
 
-usethis::use_data(training, overwrite = TRUE)
+usethis::use_data(training, overwrite = TRUE, internal=TRUE)
 
 ##########
 
@@ -45,11 +45,11 @@ usethis::use_data(randomforest, overwrite=TRUE)
 
 ##Create Random Forest for quality_type
 set.seed(1000)
-
-
+library(tidyverse)
+library(randomForest)
 ##Take out samples which are good quality type
-
-data_quality_type <- data %>% filter(quality == "bad")
+data <- training
+data_quality_type <- data %>% dplyr::filter(quality == "bad")
 
 ##Take out damage variable as there are only 2
 data_quality_type$quality_type[data_quality_type$quality_type == "damage"] <- "hole"
@@ -62,6 +62,7 @@ levels(data_quality_type$quality_type)
 TrainIndex_quality_type <- sample(1:length(data_quality_type$quality_type), size = (length(data_quality_type$quality_type)/5)*4, replace = FALSE)
 
 randomforest2 <- randomForest(quality_type ~ extract_na + assess_percentile_na_proportion + assess_rotation + assess_col_na + assess_bottomempty + lighting_protocol, data = data_quality_type, importance = TRUE, subset = TrainIndex_quality_type)
+usethis::use_data(randomforest, randomforest2, overwrite=TRUE, internal =TRUE)
 
 RandomForest2Prediction <- predict(randomforest2, newdata = data_quality_type[-TrainIndex_quality_type,], type = "response")
 

@@ -1,10 +1,10 @@
 #' Predicts the probability that a x3p scan will be good and also predicts the reason why it is bad quality if it is predicted to be bad quality.
 #'
 #' @param x3p x3p scan of a bullet land
-#' @param cutoff numeric value in [0,1] used as cut off between bad scans and good ones.
+#' @param cutoff numeric value in \[0,1\] used as cut off between bad scans and good ones.
 #' @return a dataframe with one row, containing all feature values and a prediction of the scan quality
 #' @import randomForest
-#' @importFrom utils data
+#' @importFrom utils data getS3method
 #' @export
 #' @examples
 #' data(fau277_bb_l2)
@@ -28,13 +28,14 @@ predict_quality_one <- function(x3p, cutoff = 0.57) {
     lighting_protocol = factor(lighting_protocol, levels=c(1,2))
   )
 
-  data("randomforest", package="DS401")
-  data("randomforest2", package="DS401")
-  require(randomForest)
-  newdata$quality_pred <- predict(randomforest, newdata = newdata, type = "prob")[,2]
+#  data("randomforest", "randomforest2", package="DS401", envir=parent.env(environment()))
+
+  pred <- getS3method("predict", "randomForest")
+
+  newdata$quality_pred <- pred(randomforest, newdata = newdata, type = "prob")[,2]
   newdata$quality_type <- "good"
   if (newdata$quality_pred[1] <= cutoff) {
-    newdata$quality_type <- predict(randomforest2, newdata = newdata, type = 'response')
+    newdata$quality_type <- pred(randomforest2, newdata = newdata, type = 'response')
   }
 
   return(newdata)
