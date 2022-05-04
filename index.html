@@ -175,6 +175,22 @@
 <span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
 </div>
 </div>
+<div class="section level3">
+<h3 id="predictions">Predictions<a class="anchor" aria-label="anchor" href="#predictions"></a>
+</h3>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="reference/predict_quality.html">predict_quality</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, <span class="va">fau001_ba_l1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; Loading required package: randomForest</span>
+<span class="co">#&gt; randomForest 4.7-1</span>
+<span class="co">#&gt; Type rfNews() to see new features/changes/bug fixes.</span>
+<span class="co">#&gt; # A tibble: 2 × 11</span>
+<span class="co">#&gt;   x3p       x3pname quality_pred quality_type assess_percentile_n… assess_col_na</span>
+<span class="co">#&gt;   &lt;I&lt;list&gt;&gt;   &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;         &lt;dbl&gt;</span>
+<span class="co">#&gt; 1 &lt;x3p&gt;           1        0.85  good                      0.0891          4.72 </span>
+<span class="co">#&gt; 2 &lt;x3p&gt;           1        0.906 good                      0.00131         0.863</span>
+<span class="co">#&gt; # … with 5 more variables: extract_na &lt;dbl&gt;, assess_middle_na_proportion &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   assess_rotation &lt;dbl&gt;, assess_bottomempty &lt;dbl&gt;, lighting_protocol &lt;fct&gt;</span></code></pre></div>
+</div>
 </div>
 </div>
   </div>
