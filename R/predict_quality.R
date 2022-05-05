@@ -9,6 +9,7 @@
 #' @examples
 #' data(fau277_bb_l2)
 #' predict_quality_one(fau277_bb_l2)
+
 predict_quality_one <- function(x3p, cutoff = 0.57) {
 
   stopifnot("x3p" %in% class(x3p))
