@@ -16,7 +16,7 @@
 #' @examples
 #' data(fau277_bb_l2)
 #' assess_percentile_na_proportion(fau277_bb_l2)
-assess_percentile_na_proportion<- function(x3p, chopoff = 1/7, numlines = 200, percentile = 0.8) {
+assess_percentile_na_proportion<- function(x3p, chopoff = 1/7, numlines = x3p$header.info$sizeY, percentile = 0.8) {
 
   stopifnot(class(x3p) == "x3p")
 
