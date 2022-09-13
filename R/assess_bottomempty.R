@@ -6,7 +6,7 @@
 #' The cutoff for what is considered "bottom" can be adjusted.
 #'
 #' @param x3p scan in x3p format
-#' @param n_cutoff limit for where the 'bottom' ends. In the form of a decimal such as '.n', defaults to 0.3.
+#' @param n_cutoff limit for where the 'bottom' ends. In the form of a decimal such as '.n', defaults to 0.2.
 #' @return percentage of missing values in the bottom n0%.
 #' @export
 #' @examples
