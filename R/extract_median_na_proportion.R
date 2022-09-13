@@ -18,29 +18,13 @@
 #' extract_median_na_proportion(fau277_bb_l2)
 extract_median_na_proportion <- function(x3p, chopoff = 1/6) {
 
-  SurfaceMatrix <- x3p$surface.matrix
-
-  NumberOfLines <- 18 # HH: where does the 18 come from? ## from the bottom up, + 2 lines
+  SurfaceMatrix <- cutoff_edges(x3p, chopoff)
 
   NumberofYIncrements <- x3p$header.info$sizeY
 
+  NumberOfLines <- 18 # HH: where does the 18 come from? ## from the bottom up, + 2 lines
+
   NumberOfIncrementsBetweenLines <- floor(NumberofYIncrements/NumberOfLines)
-
-  MaximumX <- x3p$header.info$sizeX*x3p$header.info$incrementX
-
-  LowerXBound <- MaximumX * chopoff
-
-  UpperXBound <- MaximumX - (MaximumX * chopoff)
-
-  LowerYBound <- 0
-
-  UpperYBound <- x3p$header.info$sizeY*x3p$header.info$incrementY
-
-  IndexLowerXBound <- floor(LowerXBound/x3p$header.info$incrementX)
-
-  IndexUpperXBound <- ceiling(UpperXBound/x3p$header.info$incrementX)
-
-  SurfaceMatrix <- SurfaceMatrix[IndexLowerXBound:IndexUpperXBound,]
 
   ProportionNA <- vector(mode = "numeric",length = NumberOfLines+1)
 
