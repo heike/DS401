@@ -11,7 +11,7 @@
 #' @examples
 #' data(fau277_bb_l2)
 #' assess_middle_na_proportion(fau277_bb_l2)
-assess_middle_na_proportion_test <- function(x3p, chopoff = 1/8) {
+assess_middle_na_proportion <- function(x3p, chopoff = 1/8) {
 
   stopifnot(class(x3p) == "x3p")
 
