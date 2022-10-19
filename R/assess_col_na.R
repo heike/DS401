@@ -3,7 +3,7 @@
 #' The function takes an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column,
 #' and the proportion that bad columns that is the threshold for a good scan.
 #' @param x3p scan in x3p format
-#' @param perc_of_col Percentage (0 to 100) used as the acceptable percentage of missing values in a column. Defaults to 40
+#' @param perc_of_col Percentage (0 to 100) used as the acceptable percentage of missing values in a column. Defaults to 20
 #' @param threshold_prop Proportion (0 to 1, defaults to 0.2) of columns with more than the acceptable percentage of missing values as defined by `perc_of_col`.
 #' @return logical value: is percentage of columns with more than XXX percent missing values below XXX?
 #' HH: replace XXX by parameter names

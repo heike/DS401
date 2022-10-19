@@ -16,11 +16,9 @@
 #' @examples
 #' data(fau277_bb_l2)
 #' assess_percentile_na_proportion(fau277_bb_l2)
-assess_percentile_na_proportion<- function(x3p, chopoff = 1/7, numlines = 200, percentile = 0.8) {
+assess_percentile_na_proportion <- function(x3p, chopoff = 1/7, numlines = x3p$header.info$sizeY, percentile = 0.8) {
 
   stopifnot(class(x3p) == "x3p")
-
-  SurfaceMatrix <- x3p$surface.matrix
 
   NumberOfLines <- numlines - 2
 
@@ -28,21 +26,7 @@ assess_percentile_na_proportion<- function(x3p, chopoff = 1/7, numlines = 200, p
 
   NumberOfIncrementsBetweenLines <- floor(NumberofYIncrements/NumberOfLines)
 
-  MaximumX <- x3p$header.info$sizeX*x3p$header.info$incrementX
-
-  LowerXBound <- MaximumX * chopoff
-
-  UpperXBound <- MaximumX - (MaximumX * chopoff)
-
-  LowerYBound <- 0
-
-  UpperYBound <- x3p$header.info$sizeY*x3p$header.info$incrementY
-
-  IndexLowerXBound <- floor(LowerXBound/x3p$header.info$incrementX)
-
-  IndexUpperXBound <- ceiling(UpperXBound/x3p$header.info$incrementX)
-
-  SurfaceMatrix <- SurfaceMatrix[IndexLowerXBound:IndexUpperXBound,]
+  SurfaceMatrix <- cutoff_edges(x3p, chopoff)
 
   ProportionNA <- vector(mode = "numeric",length = NumberOfLines+1)
 

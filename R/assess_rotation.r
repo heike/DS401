@@ -27,10 +27,13 @@ assess_rotation <- function(x3p, width=0.2) {
 
 
   na_left <- sum(is.na(middle[1:band]))
-  na_right <- sum(is.na(middle[dims[2]+1-band:1]))
+  #na_right <- sum(is.na(middle[dims[2]+1-band:1]))
+  na_right <- sum(is.na(middle[dims[1]+1-band:dims[1]]))
+
 #browser()
   na_left_bottom <- sum(is.na(bottom[1:band]))
-  na_right_bottom <- sum(is.na(bottom[dims[2]+1-band:1]))
+  #na_right_bottom <- sum(is.na(bottom[dims[2]+1-band:1]))
+  na_right_bottom <- sum(is.na(bottom[dims[1]+1-band:dims[1]]))
 
   return(abs(log((na_left+1)/(na_left_bottom+1)/((na_right+1)/(na_right_bottom+1)) )))
 }
