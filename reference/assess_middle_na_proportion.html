@@ -48,25 +48,30 @@ and are then finding the proportion of missing values in the middle of the 3d sc
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">assess_middle_na_proportion</span><span class="op">(</span><span class="va">x3p</span>, chopoff <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assess_middle_na_proportion</span><span class="op">(</span><span class="va">x3p</span>, chopoff <span class="op">=</span> <span class="fl">1</span><span class="op">/</span><span class="fl">8</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x3p</dt>
 <dd><p>scan in x3p format</p></dd>
+
+
 <dt>chopoff</dt>
 <dd><p>numeric value between 0 and .5 - The percentage of values to chop off of both sides of the scan</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>proportion of NA values in the middle of 3d scan</p>
+    
+
+<p>proportion of NA values in the middle of 3d scan</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">assess_middle_na_proportion</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">assess_middle_na_proportion</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.316787</span>
 </code></pre></div>
     </div>
@@ -82,7 +87,7 @@ and are then finding the proportion of missing values in the middle of the 3d sc
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

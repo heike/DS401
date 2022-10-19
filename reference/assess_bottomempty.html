@@ -50,27 +50,32 @@ The cutoff for what is considered "bottom" can be adjusted.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">assess_bottomempty</span><span class="op">(</span><span class="va">x3p</span>, n_cutoff <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assess_bottomempty</span><span class="op">(</span><span class="va">x3p</span>, n_cutoff <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x3p</dt>
 <dd><p>scan in x3p format</p></dd>
+
+
 <dt>n_cutoff</dt>
 <dd><p>limit for where the 'bottom' ends. In the form of a decimal such as '.n', defaults to 0.3.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>percentage of missing values in the bottom n0%.</p>
+    
+
+<p>percentage of missing values in the bottom n0%.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">assess_bottomempty</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># bad scan</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">assess_bottomempty</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span> <span class="co"># bad scan</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 95.20528</span>
-<span class="r-in"><span class="fu">assess_bottomempty</span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span></span>
+<span class="r-in"><span><span class="fu">assess_bottomempty</span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span> <span class="co"># good scan</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 22.90831</span>
 </code></pre></div>
     </div>
@@ -86,7 +91,7 @@ The cutoff for what is considered "bottom" can be adjusted.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

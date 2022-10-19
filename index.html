@@ -71,28 +71,28 @@
 </h2>
 <p>You can install the development version of DS401 from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"heike/DS401"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
+<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"heike/DS401"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">DS401</span><span class="op">)</span>
-<span class="co">## basic example code</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heike/x3ptools" class="external-link">x3ptools</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">DS401</span><span class="op">)</span></span>
+<span><span class="co">## basic example code</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/heike/x3ptools" class="external-link">x3ptools</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level3">
 <h3 id="this-scan-has-a-lot-of-problems">This scan has a lot of problems<a class="anchor" aria-label="anchor" href="#this-scan-has-a-lot-of-problems"></a>
 </h3>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, file <span class="op">=</span> <span class="st">"man/figures/fau277_bb_l2.png"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, file <span class="op">=</span> <span class="st">"man/figures/fau277_bb_l2.png"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/fau277_bb_l2.png" width="100%"></p>
 </div>
 <div class="section level3">
 <h3 id="this-scan-is-about-as-good-as-we-can-hope-for">This scan is about as good as we can hope for<a class="anchor" aria-label="anchor" href="#this-scan-is-about-as-good-as-we-can-hope-for"></a>
 </h3>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span>, file <span class="op">=</span> <span class="st">"man/figures/fau001_ba_l1.png"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/x3ptools/man/x3p_image.html" class="external-link">x3p_image</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span>, file <span class="op">=</span> <span class="st">"man/figures/fau001_ba_l1.png"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/fau001_ba_l1.png" width="100%"></p>
 <p>The <code>DS401</code> package combines a set of functions assessing the quality of scans.</p>
 </div>
@@ -104,92 +104,92 @@
 </h4>
 <p><code>extract_na</code> calculates the percentage of values that are missing in the surface matrix of the scan. For the scans shown above, the percentages are quite high for the bad scan and low for the good scan</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 38.26887</span>
-<span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 13.83538</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 38.26887</span></span>
+<span><span class="fu"><a href="reference/extract_na.html">extract_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 13.83538</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="col_na-function">col_na Function<a class="anchor" aria-label="anchor" href="#col_na-function"></a>
 </h4>
 <p>The col_na function’s goal is to distinguish between good and bad scans based on the proportion of columns with large proportions of missing values. It takes in three parameters, which are an x3p object, a percentage to be used as the number acceptable percentage of missing values in a column, and the proportion that bad columns that is the threshold for a good scan.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 4.716293</span>
-<span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.8625219</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 4.716293</span></span>
+<span><span class="fu"><a href="reference/assess_col_na.html">assess_col_na</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.8625219</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="assess-median-na-proportion">Assess Median NA Proportion<a class="anchor" aria-label="anchor" href="#assess-median-na-proportion"></a>
 </h4>
 <p>‘assess_median_na_proportion’ calculates the median proportion of NA values present in the middle of a 3d scan from a specific number of different y values. Specifically this variable is calculating the amount of feathering occuring in the 3d scans.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span><span class="co"># This scan seems to have a problem with feathering</span>
-<span class="co">#&gt; [1] 0.08906883</span>
-<span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span><span class="co"># good scan</span>
-<span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span><span class="co"># This scan seems to have a problem with feathering</span></span>
+<span><span class="co">#&gt; [1] 0.08906883</span></span>
+<span><span class="fu"><a href="reference/assess_median_na_proportion.html">assess_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span><span class="co"># good scan</span></span>
+<span><span class="co">#&gt; [1] 0.001310616</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="assess-bottom-empty">Assess Bottom Empty<a class="anchor" aria-label="anchor" href="#assess-bottom-empty"></a>
 </h4>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/assess_bottomempty.html">assess_bottomempty</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 95.20528</span>
-<span class="fu"><a href="reference/assess_bottomempty.html">assess_bottomempty</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 22.90831</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/assess_bottomempty.html">assess_bottomempty</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 95.20528</span></span>
+<span><span class="fu"><a href="reference/assess_bottomempty.html">assess_bottomempty</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 22.90831</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="assess-middle-na-proportion">Assess Middle NA Proportion<a class="anchor" aria-label="anchor" href="#assess-middle-na-proportion"></a>
 </h4>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/assess_middle_na_proportion.html">assess_middle_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.316787</span>
-<span class="fu"><a href="reference/assess_middle_na_proportion.html">assess_middle_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.02565556</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/assess_middle_na_proportion.html">assess_middle_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.316787</span></span>
+<span><span class="fu"><a href="reference/assess_middle_na_proportion.html">assess_middle_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.02565556</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="assess-percentile-na-proportion">Assess Percentile NA Proportion<a class="anchor" aria-label="anchor" href="#assess-percentile-na-proportion"></a>
 </h4>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/assess_percentile_na_proportion.html">assess_percentile_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.7013605</span>
-<span class="fu"><a href="reference/assess_percentile_na_proportion.html">assess_percentile_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.00244798</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/assess_percentile_na_proportion.html">assess_percentile_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.7013605</span></span>
+<span><span class="fu"><a href="reference/assess_percentile_na_proportion.html">assess_percentile_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.00244798</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="assess-rotation">Assess Rotation<a class="anchor" aria-label="anchor" href="#assess-rotation"></a>
 </h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/assess_rotation.html">assess_rotation</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 1.720705</span>
-<span class="fu"><a href="reference/assess_rotation.html">assess_rotation</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 1.098612</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/assess_rotation.html">assess_rotation</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1.720705</span></span>
+<span><span class="fu"><a href="reference/assess_rotation.html">assess_rotation</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 1.098612</span></span></code></pre></div>
 </div>
 <div class="section level4">
 <h4 id="extract-median-na-proportion">Extract Median NA Proportion<a class="anchor" aria-label="anchor" href="#extract-median-na-proportion"></a>
 </h4>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/extract_median_na_proportion.html">extract_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.08906883</span>
-<span class="fu"><a href="reference/extract_median_na_proportion.html">extract_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span>
-<span class="co">#&gt; [1] 0.001310616</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/extract_median_na_proportion.html">extract_median_na_proportion</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.08906883</span></span>
+<span><span class="fu"><a href="reference/extract_median_na_proportion.html">extract_median_na_proportion</a></span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+<span><span class="co">#&gt; [1] 0.001310616</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
 <h3 id="predictions">Predictions<a class="anchor" aria-label="anchor" href="#predictions"></a>
 </h3>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/predict_quality.html">predict_quality</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, <span class="va">fau001_ba_l1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; Loading required package: randomForest</span>
-<span class="co">#&gt; randomForest 4.7-1</span>
-<span class="co">#&gt; Type rfNews() to see new features/changes/bug fixes.</span>
-<span class="co">#&gt; # A tibble: 2 × 11</span>
-<span class="co">#&gt;   x3p       x3pname quality_pred quality_type assess_percentile_n… assess_col_na</span>
-<span class="co">#&gt;   &lt;I&lt;list&gt;&gt;   &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;         &lt;dbl&gt;</span>
-<span class="co">#&gt; 1 &lt;x3p&gt;           1        0.85  good                      0.0891          4.72 </span>
-<span class="co">#&gt; 2 &lt;x3p&gt;           1        0.906 good                      0.00131         0.863</span>
-<span class="co">#&gt; # … with 5 more variables: extract_na &lt;dbl&gt;, assess_middle_na_proportion &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   assess_rotation &lt;dbl&gt;, assess_bottomempty &lt;dbl&gt;, lighting_protocol &lt;fct&gt;</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/predict_quality.html">predict_quality</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="va">fau277_bb_l2</span>, <span class="va">fau001_ba_l1</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Loading required package: randomForest</span></span>
+<span><span class="co">#&gt; randomForest 4.7-1</span></span>
+<span><span class="co">#&gt; Type rfNews() to see new features/changes/bug fixes.</span></span>
+<span><span class="co">#&gt; # A tibble: 2 × 11</span></span>
+<span><span class="co">#&gt;   x3p       x3pname quality_pred quality_type assess_percentile_n… assess_col_na</span></span>
+<span><span class="co">#&gt;   &lt;I&lt;list&gt;&gt;   &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;                       &lt;dbl&gt;         &lt;dbl&gt;</span></span>
+<span><span class="co">#&gt; 1 &lt;x3p&gt;           1        0.85  good                      0.0891          4.72 </span></span>
+<span><span class="co">#&gt; 2 &lt;x3p&gt;           1        0.906 good                      0.00131         0.863</span></span>
+<span><span class="co">#&gt; # … with 5 more variables: extract_na &lt;dbl&gt;, assess_middle_na_proportion &lt;dbl&gt;,</span></span>
+<span><span class="co">#&gt; #   assess_rotation &lt;dbl&gt;, assess_bottomempty &lt;dbl&gt;, lighting_protocol &lt;fct&gt;</span></span></code></pre></div>
 </div>
 </div>
 </div>
@@ -242,7 +242,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

@@ -46,29 +46,36 @@ and the proportion that bad columns that is the threshold for a good scan.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">assess_col_na</span><span class="op">(</span><span class="va">x3p</span>, perc_of_col <span class="op">=</span> <span class="fl">20</span>, threshold_prop <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">assess_col_na</span><span class="op">(</span><span class="va">x3p</span>, perc_of_col <span class="op">=</span> <span class="fl">20</span>, threshold_prop <span class="op">=</span> <span class="fl">0.2</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x3p</dt>
 <dd><p>scan in x3p format</p></dd>
+
+
 <dt>perc_of_col</dt>
 <dd><p>Percentage (0 to 100) used as the acceptable percentage of missing values in a column. Defaults to 40</p></dd>
+
+
 <dt>threshold_prop</dt>
 <dd><p>Proportion (0 to 1, defaults to 0.2) of columns with more than the acceptable percentage of missing values as defined by <code>perc_of_col</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>logical value: is percentage of columns with more than XXX percent missing values below XXX?
+    
+
+<p>logical value: is percentage of columns with more than XXX percent missing values below XXX?
 HH: replace XXX by parameter names</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu">assess_col_na</span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">assess_col_na</span><span class="op">(</span><span class="va">fau001_ba_l1</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.8625219</span>
-<span class="r-in"><span class="fu">assess_col_na</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">assess_col_na</span><span class="op">(</span><span class="va">fau277_bb_l2</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] 4.716293</span>
 </code></pre></div>
     </div>
@@ -84,7 +91,7 @@ HH: replace XXX by parameter names</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
